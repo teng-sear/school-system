@@ -22,9 +22,16 @@ class ClassesController extends Controller
         $data->save();
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('class.create')->with(
+        return redirect()->route('class.read')->with(
             'success',
             'Class Added Successfully'
         );
+    }
+
+    public function read()
+    {
+        $data['class'] = Classes::get();
+
+        return view('admin.class.class_list', $data);
     }
 }
