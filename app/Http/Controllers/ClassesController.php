@@ -49,4 +49,16 @@ class ClassesController extends Controller
 
         return redirect()->route('class.read')->with('success', 'Class Updated Successfully');
     }
+
+    public function delete($id)
+    {
+        $data = Classes::find($id);
+
+        if (!$data) {
+            return redirect()->route('class.read')->with('error', 'Class not found');
+        }
+
+        $data->delete();
+        return redirect()->route('class.read')->with('success', 'Class Deleted Successfully');
+    }
 }
