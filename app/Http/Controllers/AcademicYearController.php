@@ -20,7 +20,9 @@ class AcademicYearController extends Controller
         $data = new AcademicYear();
         $data->name = $request->name;
         $data->save();
-        return redirect()->route('academic-year.create')->with(
+
+        // redirec ke halaman dengan pesan sukses
+        return redirect()->route('academic-year.read')->with(
             'success',
             'Academic Year Added Successfully'
         );
@@ -31,5 +33,17 @@ class AcademicYearController extends Controller
         $data['academic_year'] = AcademicYear::get();
 
         return view('admin.academic_year_list', $data);
+    }
+
+    public function delete($id)
+    {
+        $data = AcademicYear::find($id);
+
+        if (!$data) {
+            return redirect()->route('academic-year.read')->with('error', 'Academic Year not found');
+        }
+
+        $data->delete();
+        return redirect()->route('academic-year.read')->with('success', 'Academic Year Deleted Successfully');
     }
 }
