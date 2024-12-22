@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClassesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,5 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('academic-year/delete/{id}', [AcademicYearController::class, 'delete'])->name('academic-year.delete');
         Route::get('academic-year/edit/{id}', [AcademicYearController::class, 'edit'])->name('academic-year.edit');
         Route::put('academic-year/update', [AcademicYearController::class, 'update'])->name('academic-year.update');
+
+        // classes management
+        Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
     });
 });
