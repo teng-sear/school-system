@@ -31,6 +31,13 @@
 
                         {{-- table 2 --}}
                         <div class="card">
+
+                            @if (Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                </div>
+                            @endif
+
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-hover">
                                     {{-- table header --}}
@@ -55,14 +62,14 @@
                                                     <a href="" class="btn btn-primary">Edit</a>
                                                 </td>
                                                 <td>
-                                                    <form action="" method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                    <form action="{{ route('academic-year.delete', $item->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Are you sure you want to delete this academic year?');">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>
                                                     </form>
                                                 </td>
-
                                             </tr>
                                         @endforeach
 
