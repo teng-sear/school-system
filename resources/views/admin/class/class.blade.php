@@ -33,7 +33,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Academic Year</h3>
+                                <h3 class="card-title">Add Class</h3>
                             </div>
 
                             <form action="{{ route('class.store') }}" method="post">
@@ -42,8 +42,8 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Academic Year</label>
-                                        <input type="date" name="name" class="form-control" id="exampleInputEmail1"
+                                        <label for="exampleInputName">Class</label>
+                                        <input type="text" name="name" class="form-control" id="exampleInputName"
                                             placeholder="Enter Class Name">
                                     </div>
                                     @error('name')
