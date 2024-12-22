@@ -59,7 +59,8 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('academic-year.edit', $item->id) }}"
+                                                        class="btn btn-primary">Edit</a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('academic-year.delete', $item->id) }}"
