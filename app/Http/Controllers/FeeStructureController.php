@@ -46,4 +46,16 @@ class FeeStructureController extends Controller
 
         return view('admin.fee-structure.fee_structure_list', $data);
     }
+
+    public function delete($id)
+    {
+        $data = FeeStructure::find($id);
+
+        if (!$data) {
+            return redirect()->route('fee-structure.read')->with('error', 'Fee structure not found');
+        }
+
+        $data->delete();
+        return redirect()->route('fee-structure.read')->with('success', 'Fee Structure Deleted Successfully');
+    }
 }
