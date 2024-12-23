@@ -17,6 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
                 'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class
             ]
         );
+
+        // middleware proteksi route tuk student login auth
+        $middleware->redirectTo(
+            guests: '/student/login',
+            users: '/student/dashboard'
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
