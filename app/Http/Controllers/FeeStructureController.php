@@ -47,6 +47,39 @@ class FeeStructureController extends Controller
         return view('admin.fee-structure.fee_structure_list', $data);
     }
 
+    public function edit($id)
+    {
+        $data['fee_structure'] = FeeStructure::find($id);
+        $data['classes'] = Classes::all();
+        $data['academic_years'] = AcademicYear::all();
+        $data['fee_heads'] = FeeHead::all();
+        return view('admin.fee-structure.fee_structure_edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = FeeStructure::find($id);
+        $data->class_id = $request->class_id;
+        $data->academic_year_id = $request->academic_year_id;
+        $data->fee_head_id = $request->fee_head_id;
+        $data->january = $request->january;
+        $data->february = $request->february;
+        $data->march = $request->march;
+        $data->april = $request->april;
+        $data->may = $request->may;
+        $data->june = $request->june;
+        $data->july = $request->july;
+        $data->august = $request->august;
+        $data->september = $request->september;
+        $data->october = $request->october;
+        $data->november = $request->november;
+        $data->december = $request->december;
+
+        $data->update();
+
+        return redirect()->route('fee-structure.read')->with('success', 'Fee structure Updated Successfully');
+    }
+
     public function delete($id)
     {
         $data = FeeStructure::find($id);
