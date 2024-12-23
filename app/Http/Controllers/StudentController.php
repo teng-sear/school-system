@@ -78,4 +78,36 @@ class StudentController extends Controller
 
         return view('admin.student.student_list', $data);
     }
+
+    public function edit($id)
+    {
+        $data['classes'] = Classes::all();
+        $data['academic_years'] = AcademicYear::all();
+        $data['student'] = User::find($id);
+        return view('admin.student.student_edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Debug request method
+        // dd($request->method());
+
+        // Debug semua data yang diterima
+        // dd($request->all());
+
+        // Logic update
+        $user = User::find($id);
+        $user->academic_year_id = $request->academic_year_id;
+        $user->class_id = $request->class_id;
+        $user->name = $request->name;
+        $user->father_name = $request->father_name;
+        $user->mother_name = $request->mother_name;
+        $user->admission_date = $request->admission_date;
+        $user->dob = $request->dob;
+        $user->mobno = $request->mobno;
+        $user->email = $request->email;
+        $user->update();
+
+        return redirect()->route('student.read')->with('success', 'Student Updated Successfully');
+    }
 }
