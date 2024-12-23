@@ -14,9 +14,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student/login', [UserController::class, 'index'])->name('student.login');
-Route::post('/student/authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
+// student
+Route::group(['prefix' => 'student'], function () {
+    // guest
+    Route::group(['middleware' => 'guest'], function () {
+        Route::get('login', [UserController::class, 'index'])->name('student.login');
+        Route::post('authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
+    });
 
+    // auth
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
+        Route::get('logout', [UserController::class, 'logout'])->name('student.logout');
+    });
+});
+
+// admin
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
         Route::get('login', [AdminController::class, 'index'])->name('admin.login');
