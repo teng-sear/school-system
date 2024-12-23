@@ -25,4 +25,15 @@ class UserController extends Controller
             return redirect()->route('student.login')->with('error', 'Something went wrong');
         }
     }
+
+    public function dashboard()
+    {
+        return view('student.dashboard');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('student.login')->with('error', 'Logout successfully');
+    }
 }
