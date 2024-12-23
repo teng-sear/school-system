@@ -47,6 +47,7 @@
                                             <tr>
                                                 <th class="border px-4 py-2 text-left">ID</th>
                                                 <th class="border px-4 py-2 text-left">Academic Year</th>
+                                                <th class="border px-4 py-2 text-left">Class</th>
                                                 <th class="border px-4 py-2 text-left">Fee Head</th>
                                                 <th class="border px-4 py-2 text-left">Januari</th>
                                                 <th class="border px-4 py-2 text-left">Februari</th>
@@ -70,6 +71,7 @@
                                                 <tr class="hover:bg-gray-50">
                                                     <td class="border px-4 py-2">{{ $item->id }}</td>
                                                     <td class="border px-4 py-2">{{ $item->AcademicYear->name }}</td>
+                                                    <td class="border px-4 py-2">{{ $item->Classes->name }}</td>
                                                     <td class="border px-4 py-2">{{ $item->FeeHead->name }}</td>
                                                     <td class="border px-4 py-2">{{ $item->january }}</td>
                                                     <td class="border px-4 py-2">{{ $item->february }}</td>
@@ -85,7 +87,7 @@
                                                     <td class="border px-4 py-2">{{ $item->december }}</td>
                                                     <td class="border px-4 py-2">
                                                         <div class="flex space-x-2">
-                                                            <a href="{{ route('fee-head.edit', $item->id) }}"
+                                                            <a href="{{ route('fee-structure.edit', $item->id) }}"
                                                                 class="btn btn-primary px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600">
                                                                 Edit
                                                             </a>
