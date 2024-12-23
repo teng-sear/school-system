@@ -25,4 +25,19 @@ class FeeStructure extends Model
         'february',
         'march',
     ];
+
+    public function FeeHead()
+    {
+        return $this->belongsTo(FeeHead::class, 'fee_head_id');
+    }
+
+    public function AcademicYear()
+    {
+        return $this->belongsTo(AcademicYear::class, 'academic_year_id');
+    }
+
+    public function Classes()
+    {
+        return $this->belongsTo(Classes::class, 'class_id');
+    }
 }
