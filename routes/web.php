@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
+use App\Http\Controllers\StudentController;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
 
@@ -56,5 +57,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('fee-structure/edit/{id}', [FeeStructureController::class, 'edit'])->name('fee-structure.edit');
         Route::put('fee-structure/update/{id}', [FeeStructureController::class, 'update'])->name('fee-structure.update');
         Route::delete('fee-structure/delete/{id}', [FeeStructureController::class, 'delete'])->name('fee-structure.delete');
+
+        // fee structure management
+        Route::get('student/create', [StudentController::class, 'index'])->name('student.create');
+        Route::post('student/store', [StudentController::class, 'store'])->name('student.store');
     });
 });
