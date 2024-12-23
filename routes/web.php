@@ -6,12 +6,16 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/student/login', [UserController::class, 'index'])->name('student.login');
+Route::post('/student/authenticate', [UserController::class, 'authenticate'])->name('student.authenticate');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'admin.guest'], function () {
