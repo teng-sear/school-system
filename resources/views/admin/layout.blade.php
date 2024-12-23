@@ -269,7 +269,7 @@
                             </ul>
                         </li>
 
-                        {{-- fee --}}
+                        {{-- fee head --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -289,6 +289,31 @@
                                     <a href="{{ route('fee-head.read') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View Fee</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- fee structur --}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Fee Structure
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('fee-structure.create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Fee Structure</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('fee-structure.read') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Fee Structure</p>
                                     </a>
                                 </li>
                             </ul>
