@@ -107,8 +107,8 @@
                                         {{-- macrh --}}
                                         <div class="form-group col-md-4">
                                             <label for="exampleInput">Maret Fee</label>
-                                            <input type="text" name="macrh" class="form-control" id="exampleInput"
-                                                placeholder="Enter macrh Fee">
+                                            <input type="text" name="march" class="form-control" id="exampleInput"
+                                                placeholder="Enter march Fee">
                                         </div>
                                     </div>
 
