@@ -107,7 +107,7 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
-                                                        <a href="{{ route('class.edit', $item->id) }}"
+                                                        <a href="{{ route('student.edit', $item->id) }}"
                                                             class="btn btn-primary">Edit</a>
                                                     </td>
                                                     <td>
