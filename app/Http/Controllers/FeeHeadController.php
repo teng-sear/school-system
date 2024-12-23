@@ -50,4 +50,16 @@ class FeeHeadController extends Controller
 
         return redirect()->route('fee-head.read')->with('success', 'Fee Updated Successfully');
     }
+
+    public function delete($id)
+    {
+        $fee = FeeHead::find($id);
+
+        if (!$fee) {
+            return redirect()->route('fee-head.read')->with('error', 'Fee not found');
+        }
+
+        $fee->delete();
+        return redirect()->route('fee-head.read')->with('success', 'Fee Deleted Successfully');
+    }
 }
