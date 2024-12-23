@@ -4,6 +4,7 @@ use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
+use App\Http\Controllers\FeeStructureController;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +48,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('fee-head/edit/{id}', [FeeHeadController::class, 'edit'])->name('fee-head.edit');
         Route::put('fee-head/update', [FeeHeadController::class, 'update'])->name('fee-head.update');
         Route::delete('fee-head/delete/{id}', [FeeHeadController::class, 'delete'])->name('fee-head.delete');
+
+        // fee structure management
+        Route::get('fee-structure/create', [FeeStructureController::class, 'index'])->name('fee-structure.create');
+        Route::post('fee-structure/store', [FeeStructureController::class, 'store'])->name('fee-structure.store');
     });
 });
