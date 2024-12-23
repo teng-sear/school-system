@@ -89,9 +89,9 @@
                                                                 class="btn btn-primary px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600">
                                                                 Edit
                                                             </a>
-                                                            <form action="{{ route('fee-head.delete', $item->id) }}"
+                                                            <form action="{{ route('fee-structure.delete', $item->id) }}"
                                                                 method="POST"
-                                                                onsubmit="return confirm('Are you sure you want to delete this fee?');">
+                                                                onsubmit="return confirm('Are you sure you want to delete this fee structure?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"
