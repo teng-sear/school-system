@@ -36,13 +36,21 @@ class FeeStructureController extends Controller
         );
     }
 
-    public function read()
+    public function read(Request $request)
     {
-        $data['fee_structure'] = FeeStructure::with(['FeeHead', 'AcademicYear', 'Classes'])->latest()->get();
-        // dd($data);
+        $feeStructure = FeeStructure::query()->with(['FeeHead', 'AcademicYear', 'Classes'])->latest();
+        if ($request->filled('class_id')) {
+            $feeStructure->where('class_id', $request->get('class_id'));
+        }
 
-        // $data['fee-structure'] = FeeStructure::get(); // ['fee] itu untuk nama mapping nya
-        // $fee['fee'] = FeeHead::latest()->get();
+        if ($request->filled('academic_year_id')) {
+            $feeStructure->where('academic_year_id', $request->get('academic_year_id'));
+        }
+
+        $data['fee_structure'] = $feeStructure->get();
+
+        $data['classes'] = Classes::all();
+        $data['academic_years'] = AcademicYear::all();
 
         return view('admin.fee-structure.fee_structure_list', $data);
     }
