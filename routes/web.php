@@ -61,5 +61,6 @@ Route::group(['prefix' => 'admin'], function () {
         // fee structure management
         Route::get('student/create', [StudentController::class, 'index'])->name('student.create');
         Route::post('student/store', [StudentController::class, 'store'])->name('student.store');
+        Route::get('student/read', [StudentController::class, 'read'])->name('student.read');
     });
 });
