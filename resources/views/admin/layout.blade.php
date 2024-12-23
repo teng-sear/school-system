@@ -286,7 +286,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('class.read') }}" class="nav-link">
+                                    <a href="{{ route('fee-head.read') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View Fee</p>
                                     </a>
