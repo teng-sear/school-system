@@ -50,9 +50,32 @@ class StudentController extends Controller
         // FeeStructure::create($request->all());
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('student.create')->with(
+        return redirect()->route('student.read')->with(
             'success',
             'Student Added Successfully'
         );
+    }
+
+    public function read(Request $request)
+    {
+        $query = User::with(['studentClass', 'studentAcademicYear'])
+            ->where('role', 'student')
+            ->latest('id');
+        // ->get(); // Mengambil data sebagai collection
+
+        if ($request->filled('academic_year_id')) {
+            $query->where('academic_year_id', $request->get('academic_year_id'));
+        }
+
+        if ($request->filled('class_id')) {
+            $query->where('class_id', $request->get('class_id'));
+        }
+
+        $students = $query->get();
+        $data['students'] = $students;
+        $data['academic_year'] = AcademicYear::all();
+        $data['classes'] = Classes::all();
+
+        return view('admin.student.student_list', $data);
     }
 }
