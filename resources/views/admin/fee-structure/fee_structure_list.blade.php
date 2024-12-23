@@ -39,6 +39,50 @@
                             @endif
 
                             <div class="card-body">
+                                <form action="{{ url()->current() }}" method="GET">
+                                    {{-- select academic_years --}}
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label>Select Academic Years</label>
+                                            <select name="academic_year_id" class="form-control">
+                                                <option value="">Select Academic Years</option>
+                                                @foreach ($academic_years as $academic_year)
+                                                    <option value="{{ $academic_year->id }}"
+                                                        {{ $academic_year->id == request('academic_year_id') ? 'selected' : '' }}>
+                                                        {{ $academic_year->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('academic_year_id')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        {{-- select class --}}
+                                        <div class="form-group col-md-4">
+                                            <label>Select Class</label>
+                                            <select name="class_id" class="form-control">
+                                                <option value="">Select Class</option>
+                                                @foreach ($classes as $class)
+                                                    <option value="{{ $class->id }}"
+                                                        {{ $class->id == request('class_id') ? 'selected' : '' }}>
+                                                        {{ $class->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('class_id')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <button type="submit" class="btn btn-primary">Filter Data</button>
+                                            <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                        </div>
+                                    </div>
+                                </form>
+
+
                                 <div class="overflow-x-auto">
                                     <table id="example1"
                                         class="min-w-full table table-bordered table-hover border text-sm">
@@ -159,4 +203,12 @@
             });
         });
     </script>
+
+    {{-- <script>
+        document.querySelector('.btn-secondary').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('select').forEach(select => select.value = '');
+            document.querySelector('form').submit();
+        });
+    </script> --}}
 @endsection
