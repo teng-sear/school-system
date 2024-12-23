@@ -22,9 +22,17 @@ class FeeHeadController extends Controller
         $fee->save();
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('fee-head.create')->with(
+        return redirect()->route('fee-head.read')->with(
             'success',
             'Fee Added Successfully'
         );
+    }
+
+    public function read()
+    {
+        $fee['fee'] = FeeHead::get();
+        // $fee['fee'] = FeeHead::latest()->get();
+
+        return view('admin.fee-head.fee_list', $fee);
     }
 }
