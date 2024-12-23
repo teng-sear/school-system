@@ -64,5 +64,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('student/read', [StudentController::class, 'read'])->name('student.read');
         Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
         Route::put('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+        Route::delete('student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
     });
 });
