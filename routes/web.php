@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\FeeHeadController;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +39,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('class/delete/{id}', [ClassesController::class, 'delete'])->name('class.delete');
         Route::get('class/edit/{id}', [ClassesController::class, 'edit'])->name('class.edit');
         Route::put('class/update', [ClassesController::class, 'update'])->name('class.update');
+
+        // fee head management
+        Route::get('fee-head/create', [FeeHeadController::class, 'index'])->name('fee-head.create');
+        Route::post('fee-head/store', [FeeHeadController::class, 'store'])->name('fee-head.store');
     });
 });
