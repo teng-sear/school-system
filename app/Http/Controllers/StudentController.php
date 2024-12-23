@@ -110,4 +110,11 @@ class StudentController extends Controller
 
         return redirect()->route('student.read')->with('success', 'Student Updated Successfully');
     }
+
+    public function delete($id)
+    {
+        $student = User::find($id);
+        $student->delete();
+        return redirect()->route('student.read')->with('success', 'Student Deleted Successfully');
+    }
 }
