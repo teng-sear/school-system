@@ -30,9 +30,20 @@ class FeeStructureController extends Controller
         FeeStructure::create($request->all());
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('fee-structure.create')->with(
+        return redirect()->route('fee-structure.read')->with(
             'success',
             'Fee Structure Added Successfully'
         );
+    }
+
+    public function read()
+    {
+        $data['fee_structure'] = FeeStructure::with(['FeeHead', 'AcademicYear', 'Classes'])->latest()->get();
+        // dd($data);
+
+        // $data['fee-structure'] = FeeStructure::get(); // ['fee] itu untuk nama mapping nya
+        // $fee['fee'] = FeeHead::latest()->get();
+
+        return view('admin.fee-structure.fee_structure_list', $data);
     }
 }
