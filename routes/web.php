@@ -52,5 +52,6 @@ Route::group(['prefix' => 'admin'], function () {
         // fee structure management
         Route::get('fee-structure/create', [FeeStructureController::class, 'index'])->name('fee-structure.create');
         Route::post('fee-structure/store', [FeeStructureController::class, 'store'])->name('fee-structure.store');
+        Route::get('fee-structure/read', [FeeStructureController::class, 'read'])->name('fee-structure.read');
     });
 });
