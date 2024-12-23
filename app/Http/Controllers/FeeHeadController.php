@@ -35,4 +35,19 @@ class FeeHeadController extends Controller
 
         return view('admin.fee-head.fee_list', $fee);
     }
+
+    public function edit($id)
+    {
+        $fee['fee'] = FeeHead::find($id);
+        return view('admin.fee-head.fee_edit', $fee);
+    }
+
+    public function update(Request $request)
+    {
+        $fee = FeeHead::find($request->id);
+        $fee->name = $request->name;
+        $fee->update();
+
+        return redirect()->route('fee-head.read')->with('success', 'Fee Updated Successfully');
+    }
 }
