@@ -87,8 +87,15 @@ class AnnouncementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Announcement $announcement)
+    public function delete($id)
     {
-        //
+        $data = Announcement::find($id);
+
+        if (!$data) {
+            return redirect()->route('announcement.read')->with('error', 'Announcement not found');
+        }
+
+        $data->delete();
+        return redirect()->route('announcement.read')->with('success', 'Announcement Deleted Successfully');
     }
 }
