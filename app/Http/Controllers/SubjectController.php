@@ -39,10 +39,16 @@ class SubjectController extends Controller
         $subject->save();
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('subject.create')->with(
+        return redirect()->route('subject.read')->with(
             'success',
             'Subject Added Successfully'
         );
+    }
+
+    public function read()
+    {
+        $data['subjects'] = Subject::latest()->get();
+        return view('admin.subject.table', $data);
     }
 
     /**
