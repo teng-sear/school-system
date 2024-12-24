@@ -108,5 +108,6 @@ Route::group(['prefix' => 'admin'], function () {
         // assign subject to class
         Route::get('assign-subject/create', [AssignSubjectToClassController::class, 'index'])->name('assign-subject.create');
         Route::post('assign-subject/store', [AssignSubjectToClassController::class, 'store'])->name('assign-subject.store');
+        Route::get('assign-subject/read', [AssignSubjectToClassController::class, 'read'])->name('assign-subject.read');
     });
 });
