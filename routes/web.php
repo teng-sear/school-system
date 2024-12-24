@@ -99,6 +99,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('subject/create', [SubjectController::class, 'index'])->name('subject.create');
         Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
         Route::get('subject/read', [SubjectController::class, 'read'])->name('subject.read');
+        Route::get('subject/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
+        Route::put('subject/update/{id}', [SubjectController::class, 'update'])->name('subject.update');
         Route::delete('subject/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
     });
 });
