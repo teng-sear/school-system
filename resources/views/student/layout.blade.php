@@ -141,45 +141,19 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
                         href="#" role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <form action="{{ route('student.logout') }}" style="display: inline;">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
+
             </ul>
         </nav>
 
@@ -219,37 +193,12 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('student.logout') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="{{ route('student.change-password') }}" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
                                 <p>
-                                    Logout
+                                    Change Password
                                 </p>
                             </a>
-                        </li>
-
-                        {{-- academic year --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Academic Year
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('academic-year.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('academic-year.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>
