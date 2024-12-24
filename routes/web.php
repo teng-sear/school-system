@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin'], function () {
         // announcement management
         Route::get('announcement/create', [AnnouncementController::class, 'index'])->name('announcement.create');
         Route::post('announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
+        Route::get('announcement/read', [AnnouncementController::class, 'read'])->name('announcement.read');
 
         // classes management
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
