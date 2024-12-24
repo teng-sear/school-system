@@ -78,8 +78,10 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Subject $subject)
+    public function delete($id)
     {
-        //
+        $data = Subject::find($id);
+        $data->delete();
+        return redirect()->route('subject.read')->with('success', 'Subject Deleted Successfully');
     }
 }
