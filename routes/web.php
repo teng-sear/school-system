@@ -98,5 +98,6 @@ Route::group(['prefix' => 'admin'], function () {
         // subject
         Route::get('subject/create', [SubjectController::class, 'index'])->name('subject.create');
         Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
+        Route::get('subject/read', [SubjectController::class, 'read'])->name('subject.read');
     });
 });
