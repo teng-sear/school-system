@@ -61,7 +61,7 @@
                                                 <td>{{ $item->type }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('fee-head.edit', $item->id) }}"
+                                                    <a href="{{ route('subject.edit', $item->id) }}"
                                                         class="btn btn-primary">Edit</a>
                                                 </td>
                                                 <td>
