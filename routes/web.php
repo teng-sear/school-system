@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('announcement/read', [AnnouncementController::class, 'read'])->name('announcement.read');
         Route::get('announcement/edit/{id}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
         Route::put('announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
+        Route::delete('announcement/delete/{id}', [AnnouncementController::class, 'delete'])->name('announcement.delete');
 
         // classes management
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
