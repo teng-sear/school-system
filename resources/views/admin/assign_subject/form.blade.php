@@ -36,7 +36,7 @@
                                 <h3 class="card-title">Add Assign Subject</h3>
                             </div>
 
-                            <form action="{{ route('assign_subject.store') }}" method="post">
+                            <form action="{{ route('assign-subject.store') }}" method="post">
 
                                 @csrf
 
