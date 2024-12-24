@@ -3,12 +3,14 @@
 use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\AssignSubjectToClassController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
+use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
 
@@ -102,5 +104,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('subject/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
         Route::put('subject/update/{id}', [SubjectController::class, 'update'])->name('subject.update');
         Route::delete('subject/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
+
+        // assign subject to class
+        Route::get('assign_subject/create', [AssignSubjectToClassController::class, 'index'])->name('assign-subject.create');
+        Route::post('assign_subject/store', [AssignSubjectToClassController::class, 'store'])->name('assign_subject.store');
     });
 });
