@@ -38,10 +38,16 @@ class AnnouncementController extends Controller
         $announcement->save();
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('announcement.create')->with(
+        return redirect()->route('announcement.read')->with(
             'success',
             'Announcement Added Successfully'
         );
+    }
+
+    public function read()
+    {
+        $data['announcements'] = Announcement::latest()->get();
+        return view('admin.announcement.list', $data);
     }
 
     /**
