@@ -1,4 +1,8 @@
 @extends('student.layout')
+@php
+    $dob = \Carbon\Carbon::parse(Auth::user()->dob ?? '')->format('Y-m-d');
+    $isBirthday = \Carbon\Carbon::parse(Auth::user()->dob ?? '')->isBirthday();
+@endphp
 
 @section('content')
     <div class="content-wrapper">
@@ -6,7 +10,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">
+                            Dashboard
+                            @if ($isBirthday)
+                                Happy birthday {{ Auth::user()->name }}
+                            @endif
+                        </h1>
+                        <p>Date of Birth: {{ $dob }}</p>
+                        {{-- <p>Is Birthday: {{ $isBirthday ? 'Yes' : 'No' }}</p> --}}
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
