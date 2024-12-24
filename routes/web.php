@@ -7,6 +7,7 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
@@ -93,5 +94,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
         Route::put('student/update/{id}', [StudentController::class, 'update'])->name('student.update');
         Route::delete('student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
+
+        // subject
+        Route::get('subject/create', [SubjectController::class, 'index'])->name('subject.create');
+        Route::post('subject/store', [SubjectController::class, 'store'])->name('subject.store');
     });
 });
