@@ -8,6 +8,17 @@
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        @foreach ($announcement as $item)
+                            <div class="alert alert-warning">
+                                {{ $item->message }}
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">
@@ -31,12 +42,6 @@
 
         <section class="content">
             <div class="container-fluid">
-
-                Welcome Nyaaa {{ Auth::user()->name }}
-
-                <a href="{{ route('student.logout') }}">Logout</a>
-
-
                 <div class="row">
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-info">
@@ -95,7 +100,6 @@
                     </div>
 
                 </div>
-
             </div>
         </section>
     </div>
