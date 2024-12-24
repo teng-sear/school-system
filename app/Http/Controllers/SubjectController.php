@@ -62,17 +62,23 @@ class SubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Subject $subject)
+    public function edit($id)
     {
-        //
+        $data['subject'] = Subject::find($id); // Harus menggunakan subject (tunggal)
+        return view('admin.subject.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, $id)
     {
-        //
+        $data = Subject::find($id);
+        $data->name = $request->name;
+        $data->type = $request->type;
+        $data->update();
+
+        return redirect()->route('subject.read')->with('success', 'Subject Updated Successfully');
     }
 
     /**
