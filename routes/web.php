@@ -58,6 +58,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('announcement/create', [AnnouncementController::class, 'index'])->name('announcement.create');
         Route::post('announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
         Route::get('announcement/read', [AnnouncementController::class, 'read'])->name('announcement.read');
+        Route::get('announcement/edit/{id}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
+        Route::put('announcement/update/{id}', [AnnouncementController::class, 'update'])->name('announcement.update');
 
         // classes management
         Route::get('class/create', [ClassesController::class, 'index'])->name('class.create');
