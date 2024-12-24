@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,9 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        return view('student.dashboard');
+        $data['announcement'] = Announcement::where('type', 'student')->latest()->limit(1)->get();
+
+        return view('student.dashboard', $data);
     }
 
     public function logout()
