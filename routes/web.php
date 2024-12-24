@@ -26,6 +26,8 @@ Route::group(['prefix' => 'student'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
         Route::get('logout', [UserController::class, 'logout'])->name('student.logout');
+        Route::get('change-password', [UserController::class, 'changePassword'])->name('student.change-password');
+        Route::post('update-password', [UserController::class, 'updatePassword'])->name('student.update-password');
     });
 });
 
@@ -75,7 +77,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('fee-structure/update/{id}', [FeeStructureController::class, 'update'])->name('fee-structure.update');
         Route::delete('fee-structure/delete/{id}', [FeeStructureController::class, 'delete'])->name('fee-structure.delete');
 
-        // fee structure management
+        // student management
         Route::get('student/create', [StudentController::class, 'index'])->name('student.create');
         Route::post('student/store', [StudentController::class, 'store'])->name('student.store');
         Route::get('student/read', [StudentController::class, 'read'])->name('student.read');
