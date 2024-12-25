@@ -54,10 +54,29 @@ class AssignSubjectToClassController extends Controller
             $query->where('class_id', $request->get('class_id'));
         }
 
-        $data['assign_subjects'] = $query->get();
+        $data['assign_subjects'] = $query->get();  // Harus menggunakan subjects (banyak)
         $data['classes'] = Classes::all();
 
         return view('admin.assign_subject.table', $data);
+    }
+
+    public function edit($id)
+    {
+        $data['assign_subject'] = AssignSubjectToClass::find($id); // Harus menggunakan subject (tunggal)
+        $data['classes'] = Classes::all();
+        $data['subjects'] = Subject::all();
+
+        return view('admin.assign_subject.edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = AssignSubjectToClass::find($id);
+        $data->class_id = $request->class_id;
+        $data->subject_id = $request->subject_id;
+        $data->update();
+
+        return redirect()->route('assign-subject.read')->with('success', 'Assign subject Updated Successfully');
     }
 
     public function delete($id)
