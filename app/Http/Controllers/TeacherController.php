@@ -42,4 +42,11 @@ class TeacherController extends Controller
             'Teacher Added Successfully'
         );
     }
+
+    public function read()
+    {
+        $data['teachers'] = User::where('role', 'teacher')->latest()->get();
+
+        return view('admin.teacher.teacher_list', $data);
+    }
 }
