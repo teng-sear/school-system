@@ -45,6 +45,12 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        // guard teacher
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
     ],
 
     /*
@@ -71,6 +77,12 @@ return [
         ],
         // tambah provider admins
         'admins' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+
+        // login teacher
+        'teachers' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
