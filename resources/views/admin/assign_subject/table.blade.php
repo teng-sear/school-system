@@ -38,6 +38,28 @@
                                 </div>
                             @endif
 
+                            <form action="">
+                                <div class="row card-header">
+                                    <div class="form-group col-md-4">
+                                        <select name="class_id" class="form-control">
+                                            <option value="" disabled selected>Select Class</option>
+                                            @foreach ($classes as $class)
+                                                <option value="{{ $class->id }}"
+                                                    {{ $class->id == request('class_id') ? 'selected' : '' }}>
+                                                    {{ $class->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <button type="submit" class="btn btn-primary">Filter Data</button>
+                                        <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                    </div>
+                                </div>
+                            </form>
+
+
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-hover">
                                     {{-- table header --}}
@@ -46,6 +68,7 @@
                                             <th>ID</th>
                                             <th>Class Name</th>
                                             <th>Subject Name</th>
+                                            <th>Subject Type</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -57,8 +80,9 @@
                                         @foreach ($assign_subjects as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
-                                                <td>{{ $item->class_id }}</td>
-                                                <td>{{ $item->subject_id }}</td>
+                                                <td>{{ $item->class->name }}</td>
+                                                <td>{{ $item->subject->name }}</td>
+                                                <td>{{ $item->subject->type }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <a href="{{ route('class.edit', $item->id) }}"
