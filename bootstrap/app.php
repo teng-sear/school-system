@@ -15,6 +15,13 @@ return Application::configure(basePath: dirname(__DIR__))
             [
                 'admin.guest' => \App\Http\Middleware\AdminRedirect::class,
                 'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class
+            ],
+        );
+
+        $middleware->alias(
+            [
+                'teacher.guest' => \App\Http\Middleware\TeacherRedirect::class,
+                'teacher.auth' => \App\Http\Middleware\TeacherAuthenticate::class
             ]
         );
 
@@ -22,6 +29,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectTo(
             guests: '/student/login',
             users: '/student/dashboard'
+        );
+
+        // middleware proteksi route tuk teacher login auth
+        $middleware->redirectTo(
+            guests: '/teacher/login',
+            users: '/teacher/dashboard'
         );
     })
     ->withExceptions(function (Exceptions $exceptions) {
