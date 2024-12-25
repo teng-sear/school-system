@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,21 @@ Route::group(['prefix' => 'student'], function () {
         Route::get('logout', [UserController::class, 'logout'])->name('student.logout');
         Route::get('change-password', [UserController::class, 'changePassword'])->name('student.change-password');
         Route::post('update-password', [UserController::class, 'updatePassword'])->name('student.update-password');
+    });
+});
+
+// teacher 
+Route::group(['prefix' => 'teacher'], function () {
+    // guest 
+    Route::group(['middleware' => 'teacher.guest'], function () {
+        Route::get('login', [TeacherController::class, 'login'])->name('teacher.login');
+        Route::post('authenticate', [TeacherController::class, 'authenticate'])->name('teacher.authenticate');
+    });
+
+    // auth
+    Route::group(['middleware' => 'teacher.auth'], function () {
+        Route::get('dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
+        Route::get('logout', [TeacherController::class, 'logout'])->name('teacher.logout');
     });
 });
 
