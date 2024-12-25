@@ -118,5 +118,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('teacher/create', [TeacherController::class, 'index'])->name('teacher.create');
         Route::post('teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
         Route::get('teacher/read', [TeacherController::class, 'read'])->name('teacher.read');
+        Route::get('teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
+        Route::put('teacher/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
     });
 });
