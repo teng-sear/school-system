@@ -73,9 +73,9 @@
                                                             class="btn btn-primary">Edit</a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('student.delete', $item->id) }}"
+                                                        <form action="{{ route('teacher.delete', $item->id) }}"
                                                             method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to delete this student?');">
+                                                            onsubmit="return confirm('Are you sure you want to delete this teacher?');">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
