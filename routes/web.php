@@ -120,5 +120,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('teacher/read', [TeacherController::class, 'read'])->name('teacher.read');
         Route::get('teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
         Route::put('teacher/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
+        Route::delete('teacher/delete/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
     });
 });
