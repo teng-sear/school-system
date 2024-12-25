@@ -38,6 +38,12 @@ class AssignSubjectToClassController extends Controller
                 ],
             );
         }
+
+        // redirec ke halaman dengan pesan sukses
+        return redirect()->route('assign-subject.read')->with(
+            'success',
+            'Assign subject Added Successfully'
+        );
     }
 
     public function read(Request $request)
