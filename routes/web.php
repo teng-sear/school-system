@@ -117,5 +117,6 @@ Route::group(['prefix' => 'admin'], function () {
         // teacher management
         Route::get('teacher/create', [TeacherController::class, 'index'])->name('teacher.create');
         Route::post('teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
+        Route::get('teacher/read', [TeacherController::class, 'read'])->name('teacher.read');
     });
 });
