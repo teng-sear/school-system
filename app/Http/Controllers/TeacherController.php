@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
@@ -75,5 +76,57 @@ class TeacherController extends Controller
         $teacher = User::find($id);
         $teacher->delete();
         return redirect()->route('teacher.read')->with('success', 'Teacher Deleted Successfully');
+    }
+
+    public function login()
+    {
+        return view('teacher.login');
+    }
+
+    public function authenticate(Request $req)
+    {
+        // make nu admin authenticate
+        $req->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        if (Auth::guard('teacher')->attempt(['email' => $req->email, 'password' => $req->password])) {
+            if (Auth::guard('teacher')->user()->role != 'teacher') {
+                Auth::guard('teacher')->logout();
+                return redirect()->route('teacher.login')->with('error', 'Unautherize user. Access denied!');
+            }
+
+            return redirect()->route('teacher.dashboard');
+        } else {
+            return redirect()->route('teacher.login')->with('error', 'Something went wrong');
+        }
+
+        // make nu student authenticate
+        // if (Auth::attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ])) {
+        //     if (Auth::user()->role != 'teacher') {
+        //         Auth::logout();
+        //         return redirect()->route('teacher.login')->with('error', 'Unautherize user. Access denied!');
+        //     }
+
+        //     return redirect()->route('teacher.dashboard');
+        // } else {
+        //     return redirect()->route('teacher.login')->with('error', 'Something went wrong');
+        // }
+    }
+
+    // dashboard 
+    public function dashboard()
+    {
+        return view('teacher.dashboard');
+    }
+
+    // logout 
+    public function logout()
+    {
+        Auth::guard('teacher')->logout();
+        return redirect()->route('teacher.login')->with('success', 'Logout succesfully');
     }
 }
