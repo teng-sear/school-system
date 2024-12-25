@@ -9,6 +9,7 @@ use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
@@ -112,5 +113,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('assign-subject/edit/{id}', [AssignSubjectToClassController::class, 'edit'])->name('assign-subject.edit');
         Route::put('assign-subject/update/{id}', [AssignSubjectToClassController::class, 'update'])->name('assign-subject.update');
         Route::delete('assign-subject/delete/{id}', [AssignSubjectToClassController::class, 'delete'])->name('assign-subject.delete');
+
+        // teacher management
+        Route::get('teacher/create', [TeacherController::class, 'index'])->name('teacher.create');
+        Route::post('teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
     });
 });
