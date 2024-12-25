@@ -49,4 +49,24 @@ class TeacherController extends Controller
 
         return view('admin.teacher.teacher_list', $data);
     }
+
+    public function edit($id)
+    {
+        $data['teacher'] = User::find($id);
+        return view('admin.teacher.teacher_edit', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $teacher = User::find($id);
+        $teacher->name = $request->name;
+        $teacher->father_name = $request->father_name;
+        $teacher->mother_name = $request->mother_name;
+        $teacher->dob = $request->dob;
+        $teacher->mobno = $request->mobno;
+        $teacher->email = $request->email;
+        $teacher->update();
+
+        return redirect()->route('teacher.read')->with('success', 'Teacher Updated Successfully');
+    }
 }
