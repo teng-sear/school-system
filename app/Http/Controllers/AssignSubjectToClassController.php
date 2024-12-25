@@ -59,4 +59,11 @@ class AssignSubjectToClassController extends Controller
 
         return view('admin.assign_subject.table', $data);
     }
+
+    public function delete($id)
+    {
+        $data = AssignSubjectToClass::find($id);
+        $data->delete();
+        return redirect()->route('assign-subject.read')->with('success', 'Assign subject Deleted Successfully');
+    }
 }
