@@ -37,7 +37,7 @@ class TeacherController extends Controller
         $user->save();
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('teacher.create')->with(
+        return redirect()->route('teacher.read')->with(
             'success',
             'Teacher Added Successfully'
         );
@@ -68,5 +68,12 @@ class TeacherController extends Controller
         $teacher->update();
 
         return redirect()->route('teacher.read')->with('success', 'Teacher Updated Successfully');
+    }
+
+    public function delete($id)
+    {
+        $teacher = User::find($id);
+        $teacher->delete();
+        return redirect()->route('teacher.read')->with('success', 'Teacher Deleted Successfully');
     }
 }
