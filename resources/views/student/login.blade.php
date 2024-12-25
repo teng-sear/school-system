@@ -38,7 +38,7 @@
                 <a href="../../index2.html" class="h1"><b>School</b>LMS</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Sign in <b>Student</b> to start your session</p>
                 <form action="{{ route('student.authenticate') }}" method="post">
 
                     @csrf
