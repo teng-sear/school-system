@@ -40,9 +40,17 @@ class AssignSubjectToClassController extends Controller
         }
     }
 
-    public function read()
+    public function read(Request $request)
     {
-        $data['assign_subjects'] = AssignSubjectToClass::all();
+        $query = AssignSubjectToClass::with(['class', 'subject']);
+
+        if ($request->filled('class_id')) {
+            $query->where('class_id', $request->get('class_id'));
+        }
+
+        $data['assign_subjects'] = $query->get();
+        $data['classes'] = Classes::all();
+
         return view('admin.assign_subject.table', $data);
     }
 }
