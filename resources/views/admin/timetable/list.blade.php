@@ -68,9 +68,9 @@
                                                     <td>{{ $item->end_time }}</td>
                                                     <td>{{ $item->room_no }}</td>
                                                     <td>
-                                                        <form action="{{ route('teacher.delete', $item->id) }}"
+                                                        <form action="{{ route('timetable.delete', $item->id) }}"
                                                             method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to delete this teacher?');">
+                                                            onsubmit="return confirm('Are you sure you want to delete this timetable?');">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">Delete</button>
