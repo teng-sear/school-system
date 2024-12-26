@@ -156,6 +156,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('timetable/create', [TimetableController::class, 'index'])->name('timetable.create');
         Route::post('timetable/store', [TimetableController::class, 'store'])->name('timetable.store');
         Route::get('timetable/read', [TimetableController::class, 'read'])->name('timetable.read');
+        Route::delete('timetable/delete/{id}', [TimetableController::class, 'delete'])->name('timetable.delete');
     });
 
     // router clear (gak tau buat apa)
