@@ -90,7 +90,7 @@
                                                         class="btn btn-primary">Edit</a>
                                                 </td>
                                                 <td>
-                                                    <form action="{{ route('assign-subject.delete', $item->id) }}"
+                                                    <form action="{{ route('assign-teacher.delete', $item->id) }}"
                                                         method="POST"
                                                         onsubmit="return confirm('Are you sure you want to delete this assign teacher?');">
                                                         @csrf
