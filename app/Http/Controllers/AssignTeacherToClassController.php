@@ -52,6 +52,21 @@ class AssignTeacherToClassController extends Controller
         );
     }
 
+    public function read(Request $request)
+    {
+        $data['classes'] = Classes::all();
+        $assign_teachers = AssignTeacherToClass::with(['class', 'subject', 'teacher']);
+
+        if ($request->class_id) {
+            $assign_teachers->where('class_id', $request->class_id);
+        }
+
+        $assign_teachers = $assign_teachers->latest()->get();
+        $data['assign_teachers'] = $assign_teachers;
+
+        return view('admin.assign_teacher.list', $data);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
