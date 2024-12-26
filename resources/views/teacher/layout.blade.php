@@ -192,11 +192,12 @@
                             </a>
                         </li>
 
+                        {{-- my class 7 subject --}}
                         <li class="nav-item">
-                            <a href="{{ route('student.change-password') }}" class="nav-link">
-                                <i class="nav-icon fas fa-cog"></i>
+                            <a href="{{ route('teacher.my-class') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Change Password
+                                    My Class & Subject
                                 </p>
                             </a>
                         </li>
