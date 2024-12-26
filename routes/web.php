@@ -14,6 +14,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'teacher'], function () {
     // auth
     Route::group(['middleware' => 'teacher.auth'], function () {
         Route::get('dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
+        Route::get('my-class', [TeacherController::class, 'myClass'])->name('teacher.my-class');
         Route::get('logout', [TeacherController::class, 'logout'])->name('teacher.logout');
     });
 });
@@ -148,4 +150,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('assign-teacher/delete/{id}', [AssignTeacherToClassController::class, 'delete'])->name('assign-teacher.delete');
         Route::get('findSubject', [AssignTeacherToClassController::class, 'findSubject'])->name('findSubject');
     });
+
+    // router clear (gak tau buat apa)
+    Route::get('clear', function () {
+        Artisan::call('optimize:clear');
+        return redirect()->back()->with('success', 'Successfully cache cleared');
+    })->name('cache.clear');
 });
