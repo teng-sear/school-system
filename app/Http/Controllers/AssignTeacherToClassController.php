@@ -86,9 +86,11 @@ class AssignTeacherToClassController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(AssignTeacherToClass $assignTeacherToClass)
+    public function delete($id)
     {
-        //
+        $data = AssignTeacherToClass::find($id);
+        $data->delete();
+        return redirect()->route('assign-teacher.read')->with('success', 'Assign teacher Deleted Successfully');
     }
 
     // opsi 1
