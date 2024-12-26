@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\AssignSubjectToClass;
 use App\Models\AssignTeacherToClass;
 use App\Models\Classes;
+use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class AssignTeacherToClassController extends Controller
 {
@@ -46,7 +48,7 @@ class AssignTeacherToClassController extends Controller
         );
 
         // redirec ke halaman dengan pesan sukses
-        return redirect()->route('assign-teacher.create')->with(
+        return redirect()->route('assign-teacher.read')->with(
             'success',
             'Assign teacher Added Successfully'
         );
@@ -70,17 +72,31 @@ class AssignTeacherToClassController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AssignTeacherToClass $assignTeacherToClass)
+    public function edit($id)
     {
-        //
+        $res = AssignTeacherToClass::find($id);
+        $data['assign_teacher'] = $res;
+        $data['subjects'] = AssignSubjectToClass::with('subject')->where('class_id', $res->class_id)->get();
+        // dd($data['subjects']);
+        $data['classes'] = Classes::all();
+
+        $data['teachers'] = User::where('role', 'teacher')->latest()->get();
+
+        return view('admin.assign_teacher.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, AssignTeacherToClass $assignTeacherToClass)
+    public function update(Request $request, $id)
     {
-        //
+        $data = AssignTeacherToClass::find($id);
+        $data->class_id = $request->class_id;
+        $data->subject_id = $request->subject_id;
+        $data->teacher_id = $request->teacher_id;
+        $data->update();
+
+        return redirect()->route('assign-teacher.read')->with('success', 'Assign teacher Updated Successfully');
     }
 
     /**
