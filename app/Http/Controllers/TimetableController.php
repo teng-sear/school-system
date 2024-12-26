@@ -54,7 +54,7 @@ class TimetableController extends Controller
             }
         }
 
-        return redirect()->route('timetable.create')->with('success', 'Time Table added Successfully');
+        return redirect()->route('timetable.read')->with('success', 'Time Table added Successfully');
     }
 
     /**
@@ -85,8 +85,11 @@ class TimetableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Timetable $timetable)
+    public function delete($id)
     {
-        //
+        $data = Timetable::find($id);
+        $data->delete();
+
+        return redirect()->route('timetable.read')->with('success', 'Timetable deleted Successfully');
     }
 }
