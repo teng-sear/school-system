@@ -38,8 +38,36 @@
                                 </div>
                             @endif
 
-                            <div class="card-body">
+                            <form action="">
+                                <div class="row card-header">
+                                    {{-- class --}}
+                                    <div class="form-group col-md-4">
+                                        <select name="class_id" id="class_id" class="form-control">
+                                            <option value="" disabled selected>Select Class</option>
+                                            @foreach ($classes as $class)
+                                                <option value="{{ $class->id }}"
+                                                    {{ $class->id == request('class_id') ? 'selected' : '' }}>
+                                                    {{ $class->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
+                                    {{-- subject --}}
+                                    <div class="form-group col-md-4">
+                                        <select name="subject_id" id="subject_id" class="form-control">
+                                            <option value="" disabled selected>Select Subject</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <button type="submit" class="btn btn-primary">Filter Data</button>
+                                        <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="card-body">
                                 <div class="overflow-x-auto">
                                     <table id="example1" class="table table-bordered table-hover">
                                         {{-- table header --}}
@@ -64,8 +92,10 @@
                                                     <td>{{ $item->class->name }}</td>
                                                     <td>{{ $item->subject->name }}</td>
                                                     <td>{{ $item->day->name }}</td>
-                                                    <td>{{ $item->start_time }}</td>
-                                                    <td>{{ $item->end_time }}</td>
+                                                    <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->start_time)->format('h:i A') }}
+                                                    </td>
+                                                    <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->end_time)->format('h:i A') }}
+                                                    </td>
                                                     <td>{{ $item->room_no }}</td>
                                                     <td>
                                                         <form action="{{ route('timetable.delete', $item->id) }}"
@@ -133,4 +163,39 @@
             });
         });
     </script>
+
+@section('customJs')
+    <script>
+        $('#class_id').change(function() {
+            var class_id = $(this).val();
+
+            // Kosongkan dropdown sebelum diisi ulang
+            $('#subject_id').empty().append('<option disabled selected>Select Subject</option>');
+
+            // AJAX request
+            $.ajax({
+                url: "{{ route('findSubject') }}",
+                type: "GET",
+                data: {
+                    class_id: class_id
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status) {
+                        $.each(response.subjects, function(key, subject) {
+                            $('#subject_id').append(`
+                    <option value="${subject.id}">${subject.name}</option>
+                `);
+                        });
+                    } else {
+                        console.error('Failed to fetch subjects');
+                    }
+                },
+                error: function(xhr) {
+                    console.error('Error fetching subjects:', xhr);
+                }
+            });
+        });
+    </script>
+@endsection
 @endsection
