@@ -4,6 +4,7 @@ use App\Http\Controllers\AcademicYearController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AssignSubjectToClassController;
+use App\Http\Controllers\AssignTeacherToClassController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\FeeHeadController;
 use App\Http\Controllers\FeeStructureController;
@@ -137,5 +138,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
         Route::put('teacher/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
         Route::delete('teacher/delete/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
+
+        // assign teacher 
+        Route::get('assign-teacher/create', [AssignTeacherToClassController::class, 'index'])->name('assign-teacher.create');
+        Route::post('assign-teacher/store', [AssignTeacherToClassController::class, 'store'])->name('assign-teacher.store');
+        Route::get('findSubject', [AssignTeacherToClassController::class, 'findSubject'])->name('findSubject');
     });
 });
