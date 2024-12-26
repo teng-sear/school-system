@@ -11,6 +11,7 @@ use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\UserController;
 use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
@@ -150,6 +151,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('assign-teacher/update/{id}', [AssignTeacherToClassController::class, 'update'])->name('assign-teacher.update');
         Route::delete('assign-teacher/delete/{id}', [AssignTeacherToClassController::class, 'delete'])->name('assign-teacher.delete');
         Route::get('findSubject', [AssignTeacherToClassController::class, 'findSubject'])->name('findSubject');
+
+        // time table 
+        Route::get('timetable/create', [TimetableController::class, 'index'])->name('timetable.create');
+        Route::post('timetable/store', [TimetableController::class, 'store'])->name('timetable.store');
     });
 
     // router clear (gak tau buat apa)
