@@ -410,13 +410,13 @@
                                 <li class="nav-item">
                                     <a href="{{ route('assign-subject.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Assign</p>
+                                        <p>Add Assign Subject</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('assign-subject.read') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>View Asign</p>
+                                        <p>View Asign Subject</p>
                                     </a>
                                 </li>
                             </ul>
@@ -442,6 +442,31 @@
                                     <a href="{{ route('teacher.read') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>View Teacher</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- assign teacher --}}
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Assign Teacher
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('assign-teacher.create') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Assign Teacher</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('assign-teacher.read') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Asign Teacher</p>
                                     </a>
                                 </li>
                             </ul>
