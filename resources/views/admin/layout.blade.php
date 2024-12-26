@@ -32,6 +32,8 @@
 
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     @yield('customCss')
 
 </head>
@@ -113,7 +115,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce Jhson
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-muted"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
