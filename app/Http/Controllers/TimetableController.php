@@ -60,9 +60,22 @@ class TimetableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function read()
+    public function read(Request $request)
     {
-        $data['tabletimes'] = Timetable::with(['class', 'subject', 'day'])->get();
+        $data['classes'] = Classes::all();
+
+        $tabletimes = Timetable::with(['class', 'subject', 'day']);
+
+        if ($request->class_id) {
+            $tabletimes->where('class_id', $request->class_id);
+        }
+
+        if ($request->subject_id) {
+            $tabletimes->where('subject_id', $request->subject_id);
+        }
+
+        $data['tabletimes'] = $tabletimes->get();
+
         return view('admin.timetable.list', $data);
     }
 
