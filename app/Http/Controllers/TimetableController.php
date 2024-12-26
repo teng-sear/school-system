@@ -60,9 +60,10 @@ class TimetableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Timetable $timetable)
+    public function read()
     {
-        //
+        $data['tabletimes'] = Timetable::with(['class', 'subject', 'day'])->get();
+        return view('admin.timetable.list', $data);
     }
 
     /**
@@ -84,7 +85,7 @@ class TimetableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Timetable $timetable)
+    public function delete(Timetable $timetable)
     {
         //
     }
