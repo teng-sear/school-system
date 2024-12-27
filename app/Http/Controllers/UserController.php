@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\AssignTeacherToClass;
+use App\Models\Timetable;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,5 +76,49 @@ class UserController extends Controller
         $data['my_subjects'] = AssignTeacherToClass::where('class_id', $class_id)->with('subject', 'teacher')->get();
 
         return view('student.my_subject', $data);
+    }
+
+    // public function timetable()
+    // {
+    //     $class_id = Auth::guard('web')->user()->class_id;
+    //     $timetable = Timetable::with(['day', 'subject'])->where('class_id', $class_id)->get();
+    //     $group = [];
+    //     foreach ($timetable as $data) {
+    //         $group[$data->day->name][] = [
+    //             'subject' => $data->subject->name,
+    //             'start_time' => $data->start_time,
+    //             'end_time' => $data->end_time,
+    //             'room_no' => $data->room_no,
+    //         ];
+    //     };
+    //     // dd($group);
+    //     $data['timetable'] = $group;
+    //     return view('student.timetable', $data);
+    // }
+
+    public function timetable()
+    {
+        $class_id = Auth::guard('web')->user()->class_id;
+        $timetable = Timetable::with(['day', 'subject'])->where('class_id', $class_id)->get();
+
+        // Periksa apakah semua entri memiliki relasi subject
+        foreach ($timetable as $data) {
+            if (!$data->subject) {
+                dd('Missing subject for timetable ID: ' . $data->id);
+            }
+        }
+
+        $group = [];
+        foreach ($timetable as $data) {
+            $group[$data->day->name][] = [
+                'subject' => $data->subject->name,
+                'start_time' => $data->start_time,
+                'end_time' => $data->end_time,
+                'room_no' => $data->room_no,
+            ];
+        }
+
+        $data['timetable'] = $group;
+        return view('student.timetable', $data);
     }
 }
