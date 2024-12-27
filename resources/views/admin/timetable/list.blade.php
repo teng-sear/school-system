@@ -57,6 +57,12 @@
                                     <div class="form-group col-md-4">
                                         <select name="subject_id" id="subject_id" class="form-control">
                                             <option value="" disabled selected>Select Subject</option>
+                                            @foreach ($subjects as $subject)
+                                                <option value="{{ $subject->subject->id }}"
+                                                    {{ $subject->subject->id == request('subject_id') ? 'selected' : '' }}>
+                                                    {{ $subject->name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
 
