@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AssignSubjectToClass;
 use App\Models\Classes;
 use App\Models\Day;
 use App\Models\Subject;
@@ -63,16 +64,20 @@ class TimetableController extends Controller
     public function read(Request $request)
     {
         $data['classes'] = Classes::all();
+        $data['subjects'] = [];
 
         $tabletimes = Timetable::with(['class', 'subject', 'day']);
 
         if ($request->class_id) {
             $tabletimes->where('class_id', $request->class_id);
+            $data['subjects'] = AssignSubjectToClass::with('subject')->where('class_id', $request->class_id)->get();
         }
 
         if ($request->subject_id) {
             $tabletimes->where('subject_id', $request->subject_id);
         }
+
+        // dd($data['subjects']);
 
         $data['tabletimes'] = $tabletimes->get();
 
