@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teacher Login</title>
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     {{-- css dari folder public --}}
     <base href="{{ asset('admincss') }}/" />
 
@@ -38,7 +40,7 @@
                 <a href="../../index2.html" class="h1"><b>School</b>LMS</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in <b>Teacher</b> to start your session</p>
+                <p class="login-box-msg">Sign in <b>Teacher</b> untuk memulai sesi Anda</p>
                 <form action="{{ route('teacher.authenticate') }}" method="post">
 
                     @csrf
