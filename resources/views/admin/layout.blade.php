@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin School | Dashboard</title>
 
+    @vite('resources/js/app.js')
+
     {{-- css dari folder public --}}
     <base href="{{ asset('admincss') }}/" />
 
@@ -173,16 +175,18 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
                         href="#" role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
+                </li>
+
+                <li class="nav-item">
+                    <form action="{{ route('admin.logout') }}" style="display: inline;">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
                 </li>
             </ul>
         </nav>
