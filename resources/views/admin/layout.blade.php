@@ -185,7 +185,7 @@
 
                 <li class="nav-item">
                     <form action="{{ route('admin.logout') }}" style="display: inline;">
-                        <button type="submit" class="btn btn-danger">Logout</button>
+                        <button type="submit" class="btn btn-danger text-sm">Logout</button>
                     </form>
                 </li>
             </ul>
@@ -228,27 +228,12 @@
 
                         {{-- academic year --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{ route('academic-year.read') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-school"></i>
                                 <p>
-                                    Academic Year
-                                    <i class="right fas fa-angle-left"></i>
+                                    Tahun AKademik
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('academic-year.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Record</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('academic-year.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Record</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         {{-- class --}}
