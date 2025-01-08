@@ -12,8 +12,12 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Academic Year</li>
+                            <a href="{{ route('academic-year.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
