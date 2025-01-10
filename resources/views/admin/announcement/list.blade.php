@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Announcement</h1>
+                        <h1>Pengumuman</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Announcement List</li>
+                            <a href="{{ route('announcement.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -43,9 +47,9 @@
                                     {{-- table header --}}
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Message</th>
-                                            <th>Broadcast To</th>
+                                            <th>No.</th>
+                                            <th>Pesan</th>
+                                            <th>Siarkan Ke</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -56,21 +60,22 @@
                                     <tbody>
                                         @foreach ($announcements as $item)
                                             <tr>
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                 <td>{{ $item->message }}</td>
                                                 <td>{{ $item->type }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <a href="{{ route('announcement.edit', $item->id) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="btn btn-primary text-sm">Edit</a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('announcement.delete', $item->id) }}"
                                                         method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this announcement?');">
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengumuman ini?');">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
