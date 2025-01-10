@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Teacher</h1>
+                        <h1>Guru</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Teacher List</li>
+                            <a href="{{ route('teacher.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -45,11 +49,11 @@
                                         {{-- table header --}}
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Father's Name</th>
-                                                <th>Mother's Name</th>
-                                                <th>Mobile Number</th>
+                                                <th>No.</th>
+                                                <th>Nama Guru</th>
+                                                <th>Nama Ayah</th>
+                                                <th>Nama Ibu</th>
+                                                <th>No Telepon</th>
                                                 <th>Email</th>
                                                 <th>Created Time</th>
                                                 <th>Edit</th>
@@ -61,7 +65,7 @@
                                         <tbody>
                                             @foreach ($teachers as $item)
                                                 <tr>
-                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->father_name }}</td>
                                                     <td>{{ $item->mother_name }}</td>
@@ -70,15 +74,16 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
                                                         <a href="{{ route('teacher.edit', $item->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-primary text-sm">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('teacher.delete', $item->id) }}"
                                                             method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to delete this teacher?');">
+                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus guru ini?');">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit"
+                                                                class="btn btn-danger text-sm">Delete</button>
                                                         </form>
                                                     </td>
                                                 </tr>
