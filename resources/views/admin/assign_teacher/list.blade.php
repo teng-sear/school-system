@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Assign Teacher To Class</h1>
+                        <h1>Tetapkan Guru ke Kelas</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Assign Teacher List</li>
+                            <a href="{{ route('assign-teacher.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -42,7 +46,7 @@
                                 <div class="row card-header">
                                     <div class="form-group col-md-4">
                                         <select name="class_id" class="form-control">
-                                            <option value="" disabled selected>Select Class</option>
+                                            <option value="" disabled selected>Pilih Kelas</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -53,8 +57,8 @@
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <button type="submit" class="btn btn-primary">Filter Data</button>
-                                        <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                        <button type="submit" class="btn btn-primary text-sm">Filter Data</button>
+                                        <a href="{{ url()->current() }}" class="btn btn-secondary text-sm">Clear Filter</a>
                                     </div>
                                 </div>
                             </form>
@@ -64,11 +68,11 @@
                                     {{-- table header --}}
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Class Name</th>
-                                            <th>Subject Name</th>
+                                            <th>No.</th>
+                                            <th>Nama Kelas</th>
+                                            <th>Nama Subjek</th>
                                             <th>Theory/Practical</th>
-                                            <th>Teacher Name</th>
+                                            <th>Nama Guru</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -79,7 +83,7 @@
                                     <tbody>
                                         @foreach ($assign_teachers as $item)
                                             <tr>
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                 <td>{{ $item->class->name }}</td>
                                                 <td>{{ $item->subject->name }}</td>
                                                 <td>{{ $item->subject->type }}</td>
@@ -87,15 +91,16 @@
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <a href="{{ route('assign-teacher.edit', $item->id) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="btn btn-primary text-sm">Edit</a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('assign-teacher.delete', $item->id) }}"
                                                         method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this assign teacher?');">
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengajar tugas ini?');">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
