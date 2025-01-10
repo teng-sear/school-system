@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Fee Structure</h1>
+                        <h1>Struktur Penerima Biaya Mengajar</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Fee Structure List</li>
+                            <a href="{{ route('fee-structure.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -43,9 +47,8 @@
                                     {{-- select academic_years --}}
                                     <div class="row">
                                         <div class="form-group col-md-4">
-                                            <label>Select Academic Years</label>
                                             <select name="academic_year_id" class="form-control">
-                                                <option value="">Select Academic Years</option>
+                                                <option value="">Pilih Tahun Akademik</option>
                                                 @foreach ($academic_years as $academic_year)
                                                     <option value="{{ $academic_year->id }}"
                                                         {{ $academic_year->id == request('academic_year_id') ? 'selected' : '' }}>
@@ -53,16 +56,12 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('academic_year_id')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
                                         </div>
 
                                         {{-- select class --}}
                                         <div class="form-group col-md-4">
-                                            <label>Select Class</label>
                                             <select name="class_id" class="form-control">
-                                                <option value="">Select Class</option>
+                                                <option value="">Pilih Kelas</option>
                                                 @foreach ($classes as $class)
                                                     <option value="{{ $class->id }}"
                                                         {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -70,14 +69,12 @@
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            @error('class_id')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <button type="submit" class="btn btn-primary">Filter Data</button>
-                                            <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                            <button type="submit" class="btn btn-primary text-sm">Filter Data</button>
+                                            <a href="{{ url()->current() }}" class="btn btn-secondary text-sm">Clear
+                                                Filter</a>
                                         </div>
                                     </div>
                                 </form>
@@ -89,7 +86,7 @@
                                         {{-- table header --}}
                                         <thead class="bg-gray-100">
                                             <tr>
-                                                <th class="border px-4 py-2 text-left">ID</th>
+                                                <th class="border px-4 py-2 text-left">No.</th>
                                                 <th class="border px-4 py-2 text-left">Academic Year</th>
                                                 <th class="border px-4 py-2 text-left">Class</th>
                                                 <th class="border px-4 py-2 text-left">Fee Head</th>
@@ -113,7 +110,7 @@
                                         <tbody>
                                             @foreach ($fee_structure as $item)
                                                 <tr class="hover:bg-gray-50">
-                                                    <td class="border px-4 py-2">{{ $item->id }}</td>
+                                                    <td class="border px-4 py-2">{{ $loop->iteration }}.</td>
                                                     <td class="border px-4 py-2">{{ $item->AcademicYear->name }}</td>
                                                     <td class="border px-4 py-2">{{ $item->Classes->name }}</td>
                                                     <td class="border px-4 py-2">{{ $item->FeeHead->name }}</td>
@@ -137,7 +134,7 @@
                                                             </a>
                                                             <form action="{{ route('fee-structure.delete', $item->id) }}"
                                                                 method="POST"
-                                                                onsubmit="return confirm('Are you sure you want to delete this fee structure?');">
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus struktur biaya ini?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"
