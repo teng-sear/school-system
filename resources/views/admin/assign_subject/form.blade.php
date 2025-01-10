@@ -8,12 +8,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Assign Subject</h1>
+                        <h1>Tetapkan Subjek</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Assign Subject</li>
+                            <a href="{{ route('assign-subject.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Assign Subject</h3>
+                                <h3 class="card-title">Add Tetapkan Subjek</h3>
                             </div>
 
                             <form action="{{ route('assign-subject.store') }}" method="post">
@@ -42,7 +46,7 @@
 
                                 <div class="card-body">
                                     <select name="class_id" class="form-control">
-                                        <option disabled selected>Select Class</option>
+                                        <option disabled selected>Pilih Kelas</option>
                                         @foreach ($classes as $class)
                                             <option value="{{ $class->id }}">{{ $class->name }}</option>
                                         @endforeach
@@ -64,7 +68,7 @@
                                 @enderror
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Submit</button>
                                 </div>
                             </form>
                         </div>
