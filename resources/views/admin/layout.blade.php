@@ -318,27 +318,12 @@
 
                         {{-- assign teacher --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{ route('assign-teacher.read') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-chalkboard"></i>
                                 <p>
-                                    Assign Teacher
-                                    <i class="right fas fa-angle-left"></i>
+                                    Tugaskan Guru
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('assign-teacher.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Assign Teacher</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('assign-teacher.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Asign Teacher</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         {{-- assign teacher --}}
