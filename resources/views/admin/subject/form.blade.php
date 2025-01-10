@@ -8,12 +8,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Subject</h1>
+                        <h1>Subjek</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Subject Management</li>
+                            <a href="{{ route('subject.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Subject</h3>
+                                <h3 class="card-title">Add Subjek</h3>
                             </div>
 
                             <form action="{{ route('subject.store') }}" method="post">
@@ -44,9 +48,9 @@
 
                                     {{-- subject name --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Subject Name</label>
+                                        <label for="exampleInputName">Nama Subjek</label>
                                         <input type="text" name="name" class="form-control" id="exampleInputName"
-                                            placeholder="Enter Subject Name">
+                                            placeholder="Enter Nama Subjek">
                                         @error('name')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -54,7 +58,7 @@
 
                                     {{-- type --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Type</label>
+                                        <label for="exampleInputName">Tipe</label>
                                         <select name="type" class="form-control">
                                             <option value="theory">Theory</option>
                                             <option value="practical">Practical</option>
@@ -67,7 +71,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Submit</button>
                                 </div>
                             </form>
                         </div>
