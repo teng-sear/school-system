@@ -8,12 +8,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Teacher</h1>
+                        <h1>Guru</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Add Teacher</li>
+                            <a href="{{ route('teacher.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Teacher</h3>
+                                <h3 class="card-title">Add Guru</h3>
                             </div>
 
                             <form action="{{ route('teacher.store') }}" method="post">
@@ -44,9 +48,9 @@
                                     <div class="row">
                                         {{-- teacher name --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Teacher Name</label>
+                                            <label for="exampleInput">Nama Guru</label>
                                             <input type="text" name="name" class="form-control" id="exampleInput"
-                                                placeholder="Enter teacher name">
+                                                placeholder="Enter nama guru">
                                             @error('name')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -54,9 +58,9 @@
 
                                         {{-- teacher's father name --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Teacher's Father Name</label>
+                                            <label for="exampleInput">Nama Ayah Guru</label>
                                             <input type="text" name="father_name" class="form-control" id="exampleInput"
-                                                placeholder="Enter teacher Father name">
+                                                placeholder="Enter nama Ayah guru">
                                             @error('father_name')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -64,9 +68,9 @@
 
                                         {{-- teacher's mother name --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Teacher's Mother Name</label>
+                                            <label for="exampleInput">Nama Ibu Guru</label>
                                             <input type="text" name="mother_name" class="form-control" id="exampleInput"
-                                                placeholder="Enter teacher Mother name">
+                                                placeholder="Enter nama Ibu guru">
                                             @error('mother_name')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -76,7 +80,7 @@
                                     <div class="row">
                                         {{-- dob --}}
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInput">Date Of Birth</label>
+                                            <label for="exampleInput">Tanggal Lahir</label>
                                             <input type="date" name="dob" class="form-control" id="exampleInput">
                                             @error('dob')
                                                 <p class="text-danger">{{ $message }}</p>
@@ -85,9 +89,9 @@
 
                                         {{-- mobno --}}
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInput">Mobile Number</label>
+                                            <label for="exampleInput">No Telepon</label>
                                             <input type="text" name="mobno" class="form-control" id="exampleInput"
-                                                placeholder="Enter Mobile Number">
+                                                placeholder="Enter nomor telepon">
                                             @error('mobno')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -97,9 +101,9 @@
                                     <div class="row">
                                         {{-- email addreess --}}
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInput">Email Address</label>
+                                            <label for="exampleInput">Alamat Email</label>
                                             <input type="text" name="email" class="form-control" id="exampleInput"
-                                                placeholder="Enter Email Address">
+                                                placeholder="Enter alamat email">
                                             @error('email')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -107,9 +111,9 @@
 
                                         {{-- create password --}}
                                         <div class="form-group col-md-6">
-                                            <label for="exampleInput">Create Password</label>
+                                            <label for="exampleInput">Tambah Password</label>
                                             <input type="text" name="password" class="form-control" id="exampleInput"
-                                                placeholder="Enter Create Password">
+                                                placeholder="Enter Tambah Password">
                                             @error('password')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
@@ -118,7 +122,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Add teacher</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Submit</button>
                                 </div>
                             </form>
                         </div>
