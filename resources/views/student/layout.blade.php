@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student | Dashboard</title>
 
+    @vite('resources/js/app.js')
+
     {{-- css dari folder public --}}
     <base href="{{ asset('admincss') }}/" />
 
@@ -150,7 +152,7 @@
 
                 <li class="nav-item">
                     <form action="{{ route('student.logout') }}" style="display: inline;">
-                        <button type="submit" class="btn btn-danger">Logout</button>
+                        <button type="submit" class="btn btn-danger text-sm">Logout</button>
                     </form>
                 </li>
 
@@ -195,9 +197,9 @@
                         {{-- my subject --}}
                         <li class="nav-item">
                             <a href="{{ route('student.my-subject') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-solid fa-landmark"></i>
                                 <p>
-                                    My Subject
+                                    Mata Pelajaran
                                 </p>
                             </a>
                         </li>
