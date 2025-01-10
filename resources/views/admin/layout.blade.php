@@ -238,27 +238,12 @@
 
                         {{-- class --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{ route('class.read') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-book"></i>
                                 <p>
-                                    Class
-                                    <i class="right fas fa-angle-left"></i>
+                                    Kelas
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('class.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Class</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('class.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Class</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         {{-- fee head --}}
