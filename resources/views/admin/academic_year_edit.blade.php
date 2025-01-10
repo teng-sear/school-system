@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Academic Year</h1>
+                        <h1>Tahun Akademik</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -50,7 +50,7 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Academic Year</label>
+                                        <label for="exampleInputEmail1">Tahun Akademik</label>
                                         <input type="date" name="name" class="form-control" id="exampleInputEmail1"
                                             placeholder="Enter Academic Year"
                                             value="{{ old('name', $academic_year->name) }}">
@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Update Tahun Akademik</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </form>
                         </div>
