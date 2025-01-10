@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Assign Subject</h1>
+                        <h1>Tetapkan Subjek</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Assign Subject List</li>
+                            <a href="{{ route('assign-subject.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -42,7 +46,7 @@
                                 <div class="row card-header">
                                     <div class="form-group col-md-4">
                                         <select name="class_id" class="form-control">
-                                            <option value="" disabled selected>Select Class</option>
+                                            <option value="" disabled selected>Pilih Kelas</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -65,10 +69,10 @@
                                     {{-- table header --}}
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Class Name</th>
-                                            <th>Subject Name</th>
-                                            <th>Subject Type</th>
+                                            <th>No.</th>
+                                            <th>Nama Kelas</th>
+                                            <th>Nama Subjek</th>
+                                            <th>Tipe Subjek</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -79,22 +83,23 @@
                                     <tbody>
                                         @foreach ($assign_subjects as $item)
                                             <tr>
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                 <td>{{ $item->class->name }}</td>
                                                 <td>{{ $item->subject->name }}</td>
                                                 <td>{{ $item->subject->type }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <a href="{{ route('assign-subject.edit', $item->id) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="btn btn-primary text-sm">Edit</a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('assign-subject.delete', $item->id) }}"
                                                         method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this assign subject?');">
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus tetapkan subject ini?');">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
