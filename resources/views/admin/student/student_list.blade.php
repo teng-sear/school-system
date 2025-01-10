@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Student</h1>
+                        <h1>Siswa</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Student List</li>
+                            <a href="{{ route('student.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -44,7 +48,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <select name="academic_year_id" id="" class="form-control">
-                                                <option value="" disabled selected>Select Academic Year</option>
+                                                <option value="" disabled selected>Pilih Tahun Akademik</option>
                                                 @foreach ($academic_year as $item)
                                                     <option value="{{ $item->id }}"
                                                         {{ $item->id == request('academic_year_id') ? 'selected' : '' }}>
@@ -55,7 +59,7 @@
 
                                         <div class="form-group col-md-4">
                                             <select name="class_id" class="form-control">
-                                                <option value="" disabled selected>Select Class</option>
+                                                <option value="" disabled selected>Pilih Kelas</option>
                                                 @foreach ($classes as $class)
                                                     <option value="{{ $class->id }}"
                                                         {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -66,8 +70,9 @@
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <button type="submit" class="btn btn-primary">Filter Data</button>
-                                            <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                            <button type="submit" class="btn btn-primary text-sm">Filter Data</button>
+                                            <a href="{{ url()->current() }}" class="btn btn-secondary text-sm">Clear
+                                                Filter</a>
                                         </div>
                                     </div>
                                 </form>
@@ -77,13 +82,13 @@
                                         {{-- table header --}}
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Academic Yeaer</th>
-                                                <th>Class</th>
-                                                <th>Father's Name</th>
-                                                <th>Mother's Name</th>
-                                                <th>Mobile Number</th>
+                                                <th>No.</th>
+                                                <th>Nama</th>
+                                                <th>Tahun Akademik</th>
+                                                <th>Kelas</th>
+                                                <th>Nama Ayah</th>
+                                                <th>Nama Ibu</th>
+                                                <th>No Telepon</th>
                                                 <th>Email</th>
                                                 <th>Created Time</th>
                                                 <th>Edit</th>
@@ -95,7 +100,7 @@
                                         <tbody>
                                             @foreach ($students as $item)
                                                 <tr>
-                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                     <td>{{ $item->name }}</td>
                                                     {{-- "?->"" operator null-safe yang mencegah error --}}
                                                     {{-- akan menampilkan '-' jika name tidak ada --}}
@@ -108,7 +113,7 @@
                                                     <td>{{ $item->created_at }}</td>
                                                     <td>
                                                         <a href="{{ route('student.edit', $item->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-primary text-sm">Edit</a>
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('student.delete', $item->id) }}"
@@ -116,7 +121,8 @@
                                                             onsubmit="return confirm('Are you sure you want to delete this student?');">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="submit"
+                                                                class="btn btn-danger text-sm">Delete</button>
                                                         </form>
                                                     </td>
                                                 </tr>
