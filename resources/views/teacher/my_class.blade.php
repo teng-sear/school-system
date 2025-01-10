@@ -12,14 +12,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>My Class & Subject</h1>
+                        <h1>Kelas & Mata Pelajaran Saya</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">My Class & Subject List</li>
-                        </ol>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -64,9 +59,9 @@
                                     {{-- table header --}}
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Class Name</th>
-                                            <th>Subject Name</th>
+                                            <th>No.</th>
+                                            <th>Nama Kelas</th>
+                                            <th>Nama Pelajaran</th>
                                             <th>Theory/Practical</th>
                                         </tr>
                                     </thead>
@@ -75,7 +70,7 @@
                                     <tbody>
                                         @foreach ($assign_class as $item)
                                             <tr>
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                 <td>{{ $item->class->name }}</td>
                                                 <td>{{ $item->subject->name }}</td>
                                                 <td>{{ $item->subject->type }}</td>
