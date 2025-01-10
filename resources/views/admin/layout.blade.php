@@ -288,27 +288,12 @@
 
                         {{-- subject --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{ route('subject.read') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-folder"></i>
                                 <p>
-                                    Subject
-                                    <i class="right fas fa-angle-left"></i>
+                                    Subjek
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('subject.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Subject</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('subject.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Subject</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         {{-- assign subject --}}
