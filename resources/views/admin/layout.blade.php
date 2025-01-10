@@ -298,27 +298,12 @@
 
                         {{-- assign subject --}}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                            <a href="{{ route('assign-subject.read') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-folder-open"></i>
                                 <p>
-                                    Assign Subject
-                                    <i class="right fas fa-angle-left"></i>
+                                    Tetapkan Subjek
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('assign-subject.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Assign Subject</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('assign-subject.read') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>View Asign Subject</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         {{-- teacher --}}
