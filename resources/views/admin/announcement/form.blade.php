@@ -8,12 +8,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Announcement Management</h1>
+                        <h1>Pengumuman</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Announcement Management</li>
+                            <a href="{{ route('announcement.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Announcement Management</h3>
+                                <h3 class="card-title">Add Pengumuman</h3>
                             </div>
 
                             <form action="{{ route('announcement.store') }}" method="post">
@@ -44,9 +48,9 @@
 
                                     {{-- message --}}
                                     <div class="form-group">
-                                        <label for="exampleInput">Message</label>
+                                        <label for="exampleInput">Pesan</label>
                                         <input type="text" name="message" class="form-control" id="exampleInput"
-                                            placeholder="Enter Message">
+                                            placeholder="Enter Pesan">
                                         @error('message')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -54,7 +58,7 @@
 
                                     {{-- broadcast to --}}
                                     <div class="form-group">
-                                        <label for="exampleInput">Broadcast To</label>
+                                        <label for="exampleInput">Siarkan Ke</label>
                                         <select name="type" id="" class="form-control">
                                             <option value="" disabled selected>Select List</option>
                                             <option value="student">student</option>
@@ -68,7 +72,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Submit</button>
                                 </div>
                             </form>
                         </div>
