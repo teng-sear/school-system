@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Subject</h1>
+                        <h1>Subjek</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Subject List</li>
+                            <a href="{{ route('subject.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -43,9 +47,9 @@
                                     {{-- table header --}}
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Type</th>
+                                            <th>No.</th>
+                                            <th>Nama Subjek</th>
+                                            <th>Tipe</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -56,20 +60,21 @@
                                     <tbody>
                                         @foreach ($subjects as $item)
                                             <tr>
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->type }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>
                                                     <a href="{{ route('subject.edit', $item->id) }}"
-                                                        class="btn btn-primary">Edit</a>
+                                                        class="btn btn-primary text-sm">Edit</a>
                                                 </td>
                                                 <td>
                                                     <form action="{{ route('subject.delete', $item->id) }}" method="POST"
-                                                        onsubmit="return confirm('Are you sure you want to delete this subject?');">
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus subjek?');">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
