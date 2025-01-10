@@ -8,12 +8,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Assign Teacher</h1>
+                        <h1>Tetapkan Guru ke Kelas</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Add Assign Teacher</li>
+                            <a href="{{ route('assign-teacher.read') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-secondary text-sm">
+                                    <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                    Back
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -33,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Assign Teacher</h3>
+                                <h3 class="card-title">Add Tetapkan Guru ke Kelas</h3>
                             </div>
 
                             <form action="{{ route('assign-teacher.store') }}" method="post">
@@ -44,7 +48,7 @@
                                     {{-- class --}}
                                     <div class="form-group">
                                         <select name="class_id" id="class_id" class="form-control">
-                                            <option disabled selected>Select Class</option>
+                                            <option disabled selected>Pilih Kelas</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}">{{ $class->name }}</option>
                                             @endforeach
@@ -57,7 +61,7 @@
                                     {{-- subject --}}
                                     <div class="form-group">
                                         <select name="subject_id" id="subject_id" class="form-control">
-                                            <option disabled selected>Select Subject</option>
+                                            <option disabled selected>Pilih Subjek</option>
                                         </select>
                                         @error('subject_id')
                                             <p class="text-danger">{{ $message }}</p>
@@ -67,7 +71,7 @@
                                     {{-- teacher --}}
                                     <div class="form-group">
                                         <select name="teacher_id" class="form-control">
-                                            <option disabled selected>Select Teacher</option>
+                                            <option disabled selected>Pilih Guru</option>
                                             @foreach ($teachers as $teacher)
                                                 <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                                             @endforeach
@@ -79,7 +83,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Submit</button>
                                 </div>
                             </form>
                         </div>
