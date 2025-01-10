@@ -12,12 +12,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Teacher</h1>
+                        <h1>Jadwal</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Teacher List</li>
+                            <a href="{{ route('timetable.create') }}" style="display: inline;">
+                                <button type="submit" class="btn btn-success text-sm">
+                                    <i class="nav-icon fas fa-light fa-plus text-xs"></i>
+                                    Add
+                                </button>
+                            </a>
                         </ol>
                     </div>
                 </div>
@@ -43,7 +47,7 @@
                                     {{-- class --}}
                                     <div class="form-group col-md-4">
                                         <select name="class_id" id="class_id" class="form-control">
-                                            <option value="" disabled selected>Select Class</option>
+                                            <option value="" disabled selected>Pilih Kelas</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -56,7 +60,7 @@
                                     {{-- subject --}}
                                     <div class="form-group col-md-4">
                                         <select name="subject_id" id="subject_id" class="form-control">
-                                            <option value="" disabled selected>Select Subject</option>
+                                            <option value="" disabled selected>Pilih Subjek</option>
                                             @foreach ($subjects as $subject)
                                                 <option value="{{ $subject->subject->id }}"
                                                     {{ $subject->subject->id == request('subject_id') ? 'selected' : '' }}>
@@ -67,59 +71,56 @@
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <button type="submit" class="btn btn-primary">Filter Data</button>
-                                        <a href="{{ url()->current() }}" class="btn btn-secondary">Clear Filter</a>
+                                        <button type="submit" class="btn btn-primary text-sm">Filter Data</button>
+                                        <a href="{{ url()->current() }}" class="btn btn-secondary text-sm">Clear Filter</a>
                                     </div>
                                 </div>
                             </form>
 
                             <div class="card-body">
-                                <div class="overflow-x-auto">
-                                    <table id="example1" class="table table-bordered table-hover">
-                                        {{-- table header --}}
-                                        <thead>
+                                <table id="example1" class="table table-bordered table-hover">
+                                    {{-- table header --}}
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Kelas</th>
+                                            <th>Subjek</th>
+                                            <th>Hari</th>
+                                            <th>Waktu Mulai</th>
+                                            <th>Waktu Berhenti</th>
+                                            <th>Nomor Ruangan</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+
+                                    {{-- table body --}}
+                                    <tbody>
+                                        @foreach ($tabletimes as $item)
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Class</th>
-                                                <th>Subject</th>
-                                                <th>Day</th>
-                                                <th>Start Time</th>
-                                                <th>End Time</th>
-                                                <th>Room Number</th>
-                                                <th>Delete</th>
+                                                <td>{{ $loop->iteration }}.</td> <!-- Nomor Urut -->
+                                                <td>{{ $item->class->name }}</td>
+                                                <td>{{ $item->subject->name }}</td>
+                                                <td>{{ $item->day->name }}</td>
+                                                <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->start_time)->format('h:i A') }}
+                                                </td>
+                                                <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->end_time)->format('h:i A') }}
+                                                </td>
+                                                <td>{{ $item->room_no }}</td>
+                                                <td>
+                                                    <form action="{{ route('timetable.delete', $item->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus jadwal?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-danger text-sm">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
-                                        </thead>
-
-                                        {{-- table body --}}
-                                        <tbody>
-                                            @foreach ($tabletimes as $item)
-                                                <tr>
-                                                    <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->class->name }}</td>
-                                                    <td>{{ $item->subject->name }}</td>
-                                                    <td>{{ $item->day->name }}</td>
-                                                    <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->start_time)->format('h:i A') }}
-                                                    </td>
-                                                    <td>{{ \Carbon\Carbon::createFromFormat('H:i', $item->end_time)->format('h:i A') }}
-                                                    </td>
-                                                    <td>{{ $item->room_no }}</td>
-                                                    <td>
-                                                        <form action="{{ route('timetable.delete', $item->id) }}"
-                                                            method="POST"
-                                                            onsubmit="return confirm('Are you sure you want to delete this timetable?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-
                         </div>
                     </div>
                 </div>
