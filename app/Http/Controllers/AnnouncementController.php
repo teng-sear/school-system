@@ -98,4 +98,12 @@ class AnnouncementController extends Controller
         $data->delete();
         return redirect()->route('announcement.read')->with('success', 'Announcement Deleted Successfully');
     }
+
+    public function myAnnounTeacher()
+    {
+        // Filter data dengan type 'teacher' atau 'parent'
+        $data['map_announcement'] = Announcement::whereIn('type', ['teacher', 'parent'])->latest()->get();
+
+        return view('teacher.announcement', $data);
+    }
 }
