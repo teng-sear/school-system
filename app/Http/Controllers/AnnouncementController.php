@@ -106,4 +106,12 @@ class AnnouncementController extends Controller
 
         return view('teacher.announcement', $data);
     }
+
+    public function myAnnounStudent()
+    {
+        // Filter data dengan type 'student' atau 'parent'
+        $data['map_announcement'] = Announcement::whereIn('type', ['student', 'parent'])->latest()->get();
+
+        return view('student.announcement', $data);
+    }
 }
