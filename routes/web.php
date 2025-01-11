@@ -39,6 +39,7 @@ Route::group(['prefix' => 'student'], function () {
         Route::get('change-password', [UserController::class, 'changePassword'])->name('student.change-password');
         Route::post('update-password', [UserController::class, 'updatePassword'])->name('student.update-password');
         Route::get('my-subject', [UserController::class, 'mySubject'])->name('student.my-subject');
+        Route::get('announcement', [AnnouncementController::class, 'myAnnounStudent'])->name('student.announcement-student');
     });
 });
 
