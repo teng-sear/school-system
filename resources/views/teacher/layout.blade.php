@@ -203,6 +203,15 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('teacher.announcement-teacher') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-bullhorn"></i>
+                                <p>
+                                    Pengumuman
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
