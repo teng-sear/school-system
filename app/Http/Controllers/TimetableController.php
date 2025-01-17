@@ -77,27 +77,30 @@ class TimetableController extends Controller
             $tabletimes->where('subject_id', $request->subject_id);
         }
 
-        // dd($data['subjects']);
-
         $data['tabletimes'] = $tabletimes->get();
 
         return view('admin.timetable.list', $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Timetable $timetable)
+    public function readTeacher(Request $request)
     {
-        //
-    }
+        $data['classes'] = Classes::all();
+        $data['subjects'] = [];
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Timetable $timetable)
-    {
-        //
+        $tabletimes = Timetable::with(['class', 'subject', 'day']);
+
+        if ($request->class_id) {
+            $tabletimes->where('class_id', $request->class_id);
+            $data['subjects'] = AssignSubjectToClass::with('subject')->where('class_id', $request->class_id)->get();
+        }
+
+        if ($request->subject_id) {
+            $tabletimes->where('subject_id', $request->subject_id);
+        }
+
+        $data['tabletimes'] = $tabletimes->get();
+
+        return view('teacher.time_table', $data);
     }
 
     /**
