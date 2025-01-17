@@ -55,6 +55,9 @@ Route::group(['prefix' => 'teacher'], function () {
     Route::group(['middleware' => 'teacher.auth'], function () {
         Route::get('dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
         Route::get('my-class', [TeacherController::class, 'myClass'])->name('teacher.my-class');
+
+        Route::get('timetable', [TimetableController::class, 'readTeacher'])->name('teacher.timetable');
+
         Route::get('logout', [TeacherController::class, 'logout'])->name('teacher.logout');
         Route::get('announcement', [AnnouncementController::class, 'myAnnounTeacher'])->name('teacher.announcement-teacher');
         Route::get('change-password', [UserController::class, 'changePasswordTeacher'])->name('teacher.change-password');
