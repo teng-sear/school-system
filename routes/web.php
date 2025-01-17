@@ -57,6 +57,8 @@ Route::group(['prefix' => 'teacher'], function () {
         Route::get('my-class', [TeacherController::class, 'myClass'])->name('teacher.my-class');
         Route::get('logout', [TeacherController::class, 'logout'])->name('teacher.logout');
         Route::get('announcement', [AnnouncementController::class, 'myAnnounTeacher'])->name('teacher.announcement-teacher');
+        Route::get('change-password', [UserController::class, 'changePasswordTeacher'])->name('teacher.change-password');
+        Route::post('update-password', [UserController::class, 'updatePassword'])->name('teacher.update-password');
     });
 });
 
