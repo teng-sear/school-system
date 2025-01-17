@@ -103,6 +103,27 @@ class TimetableController extends Controller
         return view('teacher.time_table', $data);
     }
 
+    public function readStudent(Request $request)
+    {
+        $data['classes'] = Classes::all();
+        $data['subjects'] = [];
+
+        $tabletimes = Timetable::with(['class', 'subject', 'day']);
+
+        if ($request->class_id) {
+            $tabletimes->where('class_id', $request->class_id);
+            $data['subjects'] = AssignSubjectToClass::with('subject')->where('class_id', $request->class_id)->get();
+        }
+
+        if ($request->subject_id) {
+            $tabletimes->where('subject_id', $request->subject_id);
+        }
+
+        $data['tabletimes'] = $tabletimes->get();
+
+        return view('student.time_table', $data);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
