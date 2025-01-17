@@ -200,7 +200,6 @@
             </a>
 
             <div class="sidebar">
-
                 <div class="form-inline">
                     <div class="input-group mt-3 mb-3" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -218,121 +217,109 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                            <a href="{{ route('admin.dashboard') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Dashboard
-                                </p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
 
                         {{-- academic year --}}
                         <li class="nav-item">
-                            <a href="{{ route('academic-year.read') }}" class="nav-link">
+                            <a href="{{ route('academic-year.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'academic-year.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-school"></i>
-                                <p>
-                                    Tahun AKademik
-                                </p>
+                                <p>Tahun Akademik</p>
                             </a>
                         </li>
 
                         {{-- class --}}
                         <li class="nav-item">
-                            <a href="{{ route('class.read') }}" class="nav-link">
+                            <a href="{{ route('class.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'class.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-book"></i>
-                                <p>
-                                    Kelas
-                                </p>
+                                <p>Kelas</p>
                             </a>
                         </li>
 
                         {{-- fee head --}}
                         <li class="nav-item">
-                            <a href="{{ route('fee-head.read') }}" class="nav-link">
+                            <a href="{{ route('fee-head.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'fee-head.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-money-bill"></i>
-                                <p>
-                                    Penerima Biaya
-                                </p>
+                                <p>Penerima Biaya</p>
                             </a>
                         </li>
 
                         {{-- fee structur --}}
                         <li class="nav-item">
-                            <a href="{{ route('fee-structure.read') }}" class="nav-link">
+                            <a href="{{ route('fee-structure.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'fee-structure.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-coins"></i>
-                                <p>
-                                    Struktur Penerima Biaya
-                                </p>
+                                <p>Struktur Penerima Biaya</p>
                             </a>
                         </li>
 
                         {{-- student --}}
                         <li class="nav-item">
-                            <a href="{{ route('student.read') }}" class="nav-link">
+                            <a href="{{ route('student.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-graduation-cap"></i>
-                                <p>
-                                    Siswa
-                                </p>
+                                <p>Siswa</p>
                             </a>
                         </li>
 
                         {{-- student --}}
                         <li class="nav-item">
-                            <a href="{{ route('announcement.read') }}" class="nav-link">
+                            <a href="{{ route('announcement.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'announcement.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-bullhorn"></i>
-                                <p>
-                                    Pengumuman
-                                </p>
+                                <p>Pengumuman</p>
                             </a>
                         </li>
 
                         {{-- subject --}}
                         <li class="nav-item">
-                            <a href="{{ route('subject.read') }}" class="nav-link">
+                            <a href="{{ route('subject.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'subject.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-folder"></i>
-                                <p>
-                                    Subjek
-                                </p>
+                                <p>Subjek</p>
                             </a>
                         </li>
 
                         {{-- assign subject --}}
                         <li class="nav-item">
-                            <a href="{{ route('assign-subject.read') }}" class="nav-link">
+                            <a href="{{ route('assign-subject.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'assign-subject.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-folder-open"></i>
-                                <p>
-                                    Tetapkan Subjek
-                                </p>
+                                <p>Tetapkan Subjek</p>
                             </a>
                         </li>
 
                         {{-- teacher --}}
                         <li class="nav-item">
-                            <a href="{{ route('teacher.read') }}" class="nav-link">
+                            <a href="{{ route('teacher.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-user-tie"></i>
-                                <p>
-                                    Guru
-                                </p>
+                                <p>Guru</p>
                             </a>
                         </li>
 
                         {{-- assign teacher --}}
                         <li class="nav-item">
-                            <a href="{{ route('assign-teacher.read') }}" class="nav-link">
+                            <a href="{{ route('assign-teacher.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'assign-teacher.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-chalkboard"></i>
-                                <p>
-                                    Tugaskan Guru
-                                </p>
+                                <p>Tugaskan Guru</p>
                             </a>
                         </li>
 
                         {{-- assign teacher --}}
                         <li class="nav-item">
-                            <a href="{{ route('timetable.read') }}" class="nav-link">
+                            <a href="{{ route('timetable.read') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'timetable.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-clock"></i>
-                                <p>
-                                    Jadwal
-                                </p>
+                                <p>Jadwal</p>
                             </a>
                         </li>
                     </ul>
