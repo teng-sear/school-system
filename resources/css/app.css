@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #1e282c;
+}
+
+.nav-link.active {
+    background-color: #193757;
+    color: #fff;
+}
