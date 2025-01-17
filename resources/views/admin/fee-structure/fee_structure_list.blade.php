@@ -87,9 +87,9 @@
                                         <thead class="bg-gray-100">
                                             <tr>
                                                 <th class="border px-4 py-2 text-left">No.</th>
-                                                <th class="border px-4 py-2 text-left">Academic Year</th>
-                                                <th class="border px-4 py-2 text-left">Class</th>
-                                                <th class="border px-4 py-2 text-left">Fee Head</th>
+                                                <th class="border px-4 py-2 text-left">Tahun Akademik</th>
+                                                <th class="border px-4 py-2 text-left">Kelas</th>
+                                                <th class="border px-4 py-2 text-left">Penerima</th>
                                                 <th class="border px-4 py-2 text-left">Januari</th>
                                                 <th class="border px-4 py-2 text-left">Februari</th>
                                                 <th class="border px-4 py-2 text-left">Maret</th>
