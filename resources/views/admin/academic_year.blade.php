@@ -40,21 +40,19 @@
                                 <h3 class="card-title">Add Tahun Akademik</h3>
                             </div>
 
+                            {{-- tahun akademik --}}
                             <form action="{{ route('academic-year.store') }}" method="post">
-
                                 @csrf
-
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tahun Akademik</label>
-                                        <input type="date" name="name" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter Academic Year">
+                                        <label for="tahunAkademik">Tahun Akademik</label>
+                                        <input type="text" name="tahunAkademik" class="form-control" id="tahunAkademik"
+                                            placeholder="Misal: 2023/2024">
                                     </div>
-                                    @error('name')
+                                    @error('tahunAkademik')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
