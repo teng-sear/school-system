@@ -44,9 +44,16 @@ class UserController extends Controller
         return redirect()->route('student.login')->with('error', 'Logout successfully');
     }
 
+    // password student
     public function changePassword()
     {
         return view('student.change_password');
+    }
+
+    // password teacher
+    public function changePasswordTeacher()
+    {
+        return view('teacher.change_password');
     }
 
     public function updatePassword(Request $request)
