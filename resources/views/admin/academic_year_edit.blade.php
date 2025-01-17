@@ -41,8 +41,7 @@
                             </div>
 
                             {{-- metode default HTML hanya mendukung GET dan POST --}}
-                            <form action="{{ route('academic-year.update') }}" method="post">
-
+                            <form action="{{ route('academic-year.update', $academic_year->id) }}" method="post">
                                 @csrf
                                 @method('PUT') <!-- Mengubah metode menjadi PUT -->
 
@@ -50,12 +49,12 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tahun Akademik</label>
-                                        <input type="date" name="name" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter Academic Year"
-                                            value="{{ old('name', $academic_year->name) }}">
+                                        <label for="tahunAkademik">Tahun Akademik</label>
+                                        <input type="text" name="tahunAkademik" class="form-control" id="tahunAkademik"
+                                            placeholder="Misal: 2023/2024"
+                                            value="{{ old('tahunAkademik', $academic_year->name) }}">
                                     </div>
-                                    @error('name')
+                                    @error('tahunAkademik')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
