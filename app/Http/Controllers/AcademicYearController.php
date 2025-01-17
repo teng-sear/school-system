@@ -12,16 +12,36 @@ class AcademicYearController extends Controller
         return view('admin.academic_year');
     }
 
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required'
+    //     ]);
+    //     $data = new AcademicYear();
+    //     $data->name = $request->name;
+    //     $data->save();
+
+    //     // redirec ke halaman dengan pesan sukses
+    //     return redirect()->route('academic-year.read')->with(
+    //         'success',
+    //         'Academic Year Added Successfully'
+    //     );
+    // }
+
+    // opsi ke-2
     public function store(Request $request)
     {
+        // Validasi
         $request->validate([
-            'name' => 'required'
+            'tahunAkademik' => 'required|string'
         ]);
+
+        // Simpan data
         $data = new AcademicYear();
-        $data->name = $request->name;
+        $data->name = $request->tahunAkademik;
         $data->save();
 
-        // redirec ke halaman dengan pesan sukses
+        // Redirect dengan pesan sukses
         return redirect()->route('academic-year.read')->with(
             'success',
             'Academic Year Added Successfully'
@@ -49,16 +69,26 @@ class AcademicYearController extends Controller
 
     public function edit($id)
     {
-        $data['academic_year'] = AcademicYear::find($id);
+        $data['academic_year'] = AcademicYear::findOrFail($id); // Pastikan data ditemukan
         return view('admin.academic_year_edit', $data);
     }
 
     public function update(Request $request)
     {
-        $data = AcademicYear::find($request->id);
-        $data->name = $request->name;
-        $data->update();
+        // Validasi input
+        $request->validate([
+            'tahunAkademik' => 'required|string|regex:/^\d{4}\/\d{4}(?:\s\w+)?$/'
+        ]);
 
+
+        // Cari data berdasarkan ID
+        $academicYear = AcademicYear::findOrFail($request->id);
+
+        // Update data
+        $academicYear->name = $request->tahunAkademik;
+        $academicYear->save();
+
+        // Redirect dengan pesan sukses
         return redirect()->route('academic-year.read')->with('success', 'Academic Year Updated Successfully');
     }
 }
