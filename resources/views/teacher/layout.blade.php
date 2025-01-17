@@ -164,76 +164,60 @@
             <a href="index3.html" class="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Teacher</span>
+                <span class="brand-text font-weight-light">
+                    {{ optional(Auth::user())->name ?? 'Guest' }}
+                </span>
             </a>
 
             <div class="sidebar">
-
-                <div class="form-inline">
-                    <div class="input-group mt-3 mb-3" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{ route('teacher.dashboard') }}" class="nav-link">
+                            <a href="{{ route('teacher.dashboard') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.dashboard' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Dashboard
-                                </p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
 
-                        {{-- my class 7 subject --}}
                         <li class="nav-item">
-                            <a href="{{ route('teacher.my-class') }}" class="nav-link">
+                            <a href="{{ route('teacher.my-class') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.my-class' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-chalkboard"></i>
-                                <p>
-                                    Kelas & Mata Pelajaran
-                                </p>
+                                <p>My Class</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('teacher.timetable') }}" class="nav-link">
+                            <a href="{{ route('teacher.timetable') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.timetable' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-clock"></i>
-                                <p>
-                                    Jadwal Mengajar
-                                </p>
+                                <p>Timetable</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('teacher.announcement-teacher') }}" class="nav-link">
+                            <a href="{{ route('teacher.announcement-teacher') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.announcement-teacher' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-bullhorn"></i>
-                                <p>
-                                    Pengumuman
-                                </p>
+                                <p>Announcement</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('teacher.change-password') }}" class="nav-link">
+                            <a href="{{ route('teacher.change-password') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'teacher.change-password' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-cog"></i>
-                                <p>
-                                    Change Password
-                                </p>
+                                <p>Change Password</p>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </aside>
+
 
         {{-- content dashboard --}}
         @yield('content')
