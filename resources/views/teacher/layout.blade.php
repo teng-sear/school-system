@@ -164,7 +164,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Malah Gak</span>
+                <span class="brand-text font-weight-light">Teacher</span>
             </a>
 
             <div class="sidebar">
@@ -209,6 +209,15 @@
                                 <i class="nav-icon fas fa-solid fa-bullhorn"></i>
                                 <p>
                                     Pengumuman
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('teacher.change-password') }}" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Change Password
                                 </p>
                             </a>
                         </li>
