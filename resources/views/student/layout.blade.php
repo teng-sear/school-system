@@ -164,11 +164,12 @@
             <a href="index3.html" class="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">{{ Auth::user()->name }}</span>
+                <span class="brand-text font-weight-light">
+                    {{ optional(Auth::user())->name ?? 'Guest' }}
+                </span>
             </a>
 
             <div class="sidebar">
-
                 <div class="form-inline">
                     <div class="input-group mt-3 mb-3" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search"
@@ -186,54 +187,49 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{ route('student.dashboard') }}" class="nav-link">
+                            <a href="{{ route('student.dashboard') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.dashboard' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Dashboard
-                                </p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
 
-                        {{-- my subject --}}
                         <li class="nav-item">
-                            <a href="{{ route('student.my-subject') }}" class="nav-link">
+                            <a href="{{ route('student.my-subject') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.my-subject' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-landmark"></i>
-                                <p>
-                                    Mata Pelajaran
-                                </p>
+                                <p>Mata Pelajaran</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('student.timetable') }}" class="nav-link">
+                            <a href="{{ route('student.timetable') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.timetable' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-clock"></i>
-                                <p>
-                                    Jadwal Kelas
-                                </p>
+                                <p>Jadwal Kelas</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('student.announcement-student') }}" class="nav-link">
+                            <a href="{{ route('student.announcement-student') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.announcement-student' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-bullhorn"></i>
-                                <p>
-                                    Pengumuman
-                                </p>
+                                <p>Pengumuman</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('student.change-password') }}" class="nav-link">
+                            <a href="{{ route('student.change-password') }}"
+                                class="nav-link {{ Route::currentRouteName() === 'student.change-password' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-cog"></i>
-                                <p>
-                                    Change Password
-                                </p>
+                                <p>Change Password</p>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </aside>
+
 
         {{-- content dashboard --}}
         @yield('content')
