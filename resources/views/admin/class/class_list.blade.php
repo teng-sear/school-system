@@ -48,7 +48,7 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Name</th>
+                                            <th>Kelas</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
