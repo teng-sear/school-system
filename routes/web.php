@@ -35,6 +35,9 @@ Route::group(['prefix' => 'student'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', [UserController::class, 'dashboard'])->name('student.dashboard');
         Route::get('timetable', [UserController::class, 'timetable'])->name('student.timetable');
+
+        Route::get('timetable', [TimetableController::class, 'readStudent'])->name('student.timetable');
+
         Route::get('logout', [UserController::class, 'logout'])->name('student.logout');
         Route::get('change-password', [UserController::class, 'changePassword'])->name('student.change-password');
         Route::post('update-password', [UserController::class, 'updatePassword'])->name('student.update-password');
