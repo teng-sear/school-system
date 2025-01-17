@@ -205,6 +205,15 @@
                         </li>
 
                         <li class="nav-item">
+                            <a href="{{ route('student.timetable') }}" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-clock"></i>
+                                <p>
+                                    Jadwal Kelas
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{ route('student.announcement-student') }}" class="nav-link">
                                 <i class="nav-icon fas fa-solid fa-bullhorn"></i>
                                 <p>
