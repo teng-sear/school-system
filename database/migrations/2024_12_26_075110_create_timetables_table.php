@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('timetables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_id')->constrained()->onDelete('cascade');
-            $table->foreignId('day_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            //$table->unsignedBigInteger('class_id')->nullable();
+            //$table->unsignedBigInteger('day_id')->nullable();
+            //$table->unsignedBigInteger('subject_id')->nullable();
             $table->string('start_time');
             $table->string('end_time');
             $table->string('room_no');

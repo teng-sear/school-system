@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tahun Akademik</h1>
+                        <h1>Academic Year</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Edit Tahun Akademik</h3>
+                                <h3 class="card-title">Edit Academic Year</h3>
                             </div>
 
                             {{-- metode default HTML hanya mendukung GET dan POST --}}
@@ -49,12 +49,12 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="tahunAkademik">Tahun Akademik</label>
-                                        <input type="text" name="tahunAkademik" class="form-control" id="tahunAkademik"
+                                        <label for="AcademicYeark">Academic Year</label>
+                                        <input type="text" name="AcademicYear" class="form-control" id="AcademicYear"
                                             placeholder="Misal: 2023/2024"
-                                            value="{{ old('tahunAkademik', $academic_year->name) }}">
+                                            value="{{ old('AcademicYear', $academic_year->name) }}">
                                     </div>
-                                    @error('tahunAkademik')
+                                    @error('AcademicYear')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

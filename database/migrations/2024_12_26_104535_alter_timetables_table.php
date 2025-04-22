@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('timetables', function (Blueprint $table) {
-            $table->foreignId('class_id')->constrained()->onDelete('cascade')->nullable()->change();
-            $table->foreignId('day_id')->constrained()->onDelete('cascade')->nullable()->change();
-            $table->foreignId('subject_id')->constrained()->onDelete('cascade')->nullable()->change();
+            // $table->foreignId('class_id')->constrained()->onDelete('cascade')->nullable()->change();
+            // $table->foreignId('day_id')->constrained()->onDelete('cascade')->nullable()->change();
+            // $table->foreignId('subject_id')->constrained()->onDelete('cascade')->nullable()->change();
             $table->string('start_time')->nullable()->change();
             $table->string('end_time')->nullable()->change();
             $table->string('room_no')->nullable()->change();
@@ -27,9 +27,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('timetables', function (Blueprint $table) {
-            $table->foreignId('class_id')->constrained()->onDelete('cascade')->change();
-            $table->foreignId('day_id')->constrained()->onDelete('cascade')->change();
-            $table->foreignId('subject_id')->constrained()->onDelete('cascade')->change();
+            // $table->foreignId('class_id')->constrained()->onDelete('cascade')->change();
+            // $table->foreignId('day_id')->constrained()->onDelete('cascade')->change();
+            // $table->foreignId('subject_id')->constrained()->onDelete('cascade')->change();
             $table->string('start_time')->change();
             $table->string('end_time')->change();
             $table->string('room_no')->change();

@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Struktur Penerima Biaya Mengajar</h1>
+                        <h1>Teaching Fee Recipient Structure</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,14 +37,14 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Edit Struktur Penerima Biaya Mengajar</h3>
+                                <h3 class="card-title">Edit Teaching Fee Recipient Structure</h3>
                             </div>
 
                             {{-- metode default HTML hanya mendukung GET dan POST --}}
                             <form action="{{ route('fee-structure.update', $fee_structure->id) }}" method="post">
 
                                 @csrf
-                                @method('PUT') <!-- Mengubah metode menjadi PUT -->
+                                @method('PUT') <!-- PUT -->
 
                                 <input type="hidden" name="id" value="{{ $fee_structure->id }}">
 
@@ -53,7 +53,7 @@
                                     <div class="row">
                                         {{-- select class --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Kelas</label>
+                                            <label>Select Class</label>
                                             <select name="class_id" class="form-control">
                                                 <option value="">Select Class</option>
                                                 @foreach ($classes as $class)
@@ -73,7 +73,7 @@
 
                                         {{-- select academic_years --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Tahun Akademik</label>
+                                            <label>Select Academic Year</label>
                                             <select name="academic_year_id" class="form-control">
                                                 <option value="">Select Academic Year</option>
                                                 @foreach ($academic_years as $academic_year)
@@ -91,7 +91,7 @@
 
                                         {{-- select fee_heads --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Penerima Biaya</label>
+                                            <label>Select Fee Recipient</label>
                                             <select name="fee_head_id" class="form-control">
                                                 <option value="" disabled selected>Select Fee Head</option>
                                                 @foreach ($fee_heads as $fee_head)
@@ -112,25 +112,25 @@
                                     <div class="row">
                                         {{-- january --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Januari</label>
+                                            <label for="exampleInput">January Costs</label>
                                             <input type="text" name="january" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya january"
+                                                placeholder="Enter Costs january"
                                                 value="{{ old('january', $fee_structure->january) }}">
                                         </div>
 
                                         {{-- february --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Februari</label>
+                                            <label for="exampleInput">February Costs</label>
                                             <input type="text" name="february" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya februari"
+                                                placeholder="Enter Costs february"
                                                 value="{{ old('february', $fee_structure->february) }}">
                                         </div>
 
                                         {{-- macrh --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Maret</label>
+                                            <label for="exampleInput">March Costs</label>
                                             <input type="text" name="march" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya maret"
+                                                placeholder="Enter Costs march"
                                                 value="{{ old('march', $fee_structure->march) }}">
                                         </div>
                                     </div>
@@ -138,25 +138,25 @@
                                     <div class="row">
                                         {{-- april --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya April</label>
+                                            <label for="exampleInput">April Costs</label>
                                             <input type="text" name="april" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya April"
+                                                placeholder="Enter Costs April"
                                                 value="{{ old('april', $fee_structure->april) }}">
                                         </div>
 
                                         {{-- may --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Mei</label>
+                                            <label for="exampleInput">May Costs</label>
                                             <input type="text" name="may" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya mei"
+                                                placeholder="Enter Costs may"
                                                 value="{{ old('may', $fee_structure->may) }}">
                                         </div>
 
                                         {{-- june --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Juni</label>
+                                            <label for="exampleInput">June Costs</label>
                                             <input type="text" name="june" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya juni"
+                                                placeholder="Enter Costs june"
                                                 value="{{ old('june', $fee_structure->june) }}">
                                         </div>
                                     </div>
@@ -164,9 +164,9 @@
                                     <div class="row">
                                         {{-- july --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Juli</label>
+                                            <label for="exampleInput">July Costs</label>
                                             <input type="text" name="july" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya juli"
+                                                placeholder="Enter Costs july"
                                                 value="{{ old('july', $fee_structure->july) }}">
                                         </div>
 

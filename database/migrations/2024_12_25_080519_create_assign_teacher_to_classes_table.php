@@ -14,9 +14,9 @@ return new class extends Migration
         if (!Schema::hasTable('assign_teacher_to_classes')) {
             Schema::create('assign_teacher_to_classes', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('class_id')->constrained()->onDelete('cascade');
+                // $table->foreignId('class_id')->constrained()->onDelete('cascade');
                 $table->foreignId('subject_id')->constrained()->onDelete('cascade');
-                $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
+                $table->unsignedBigInteger('teacher_id')->nullable();
                 $table->timestamps();
             });
         }

@@ -33,12 +33,12 @@ class AcademicYearController extends Controller
     {
         // Validasi
         $request->validate([
-            'tahunAkademik' => 'required|string'
+            'AcademicYear' => 'required|string'
         ]);
 
         // Simpan data
         $data = new AcademicYear();
-        $data->name = $request->tahunAkademik;
+        $data->name = $request->AcademicYear;
         $data->save();
 
         // Redirect dengan pesan sukses
@@ -77,7 +77,7 @@ class AcademicYearController extends Controller
     {
         // Validasi input
         $request->validate([
-            'tahunAkademik' => 'required|string|regex:/^\d{4}\/\d{4}(?:\s\w+)?$/'
+            'AcademicYear' => 'required|string|regex:/^\d{4}\/\d{4}(?:\s\w+)?$/'
         ]);
 
 
@@ -85,7 +85,7 @@ class AcademicYearController extends Controller
         $academicYear = AcademicYear::findOrFail($request->id);
 
         // Update data
-        $academicYear->name = $request->tahunAkademik;
+        $academicYear->name = $request->AcademicYear;
         $academicYear->save();
 
         // Redirect dengan pesan sukses

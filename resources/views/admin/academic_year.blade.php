@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tahun Akademik</h1>
+                        <h1>Academic Year</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Tahun Akademik</h3>
+                                <h3 class="card-title">Add Academic Year</h3>
                             </div>
 
                             {{-- tahun akademik --}}
@@ -45,11 +45,11 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="tahunAkademik">Tahun Akademik</label>
-                                        <input type="text" name="tahunAkademik" class="form-control" id="tahunAkademik"
-                                            placeholder="Misal: 2023/2024">
+                                        <label for="AcademicYear">Academic Year</label>
+                                        <input type="text" name="AcademicYear" class="form-control" id="AcademicYear"
+                                            placeholder="Misal: 2024/2025">
                                     </div>
-                                    @error('tahunAkademik')
+                                    @error('AcademicYear')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

@@ -238,7 +238,7 @@
                             <a href="{{ route('class.read') }}"
                                 class="nav-link {{ Route::currentRouteName() === 'class.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-book"></i>
-                                <p>Kelas</p>
+                                <p>Class</p>
                             </a>
                         </li>
 
@@ -256,7 +256,7 @@
                             <a href="{{ route('fee-structure.read') }}"
                                 class="nav-link {{ Route::currentRouteName() === 'fee-structure.read' ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-solid fa-coins"></i>
-                                <p>Struktur Penerima Biaya</p>
+                                <p>Teaching Fee Recipient Structure</p>
                             </a>
                         </li>
 

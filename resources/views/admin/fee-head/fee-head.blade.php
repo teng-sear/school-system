@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Penerima Biaya Mengajar</h1>
+                        <h1>Teaching Fee Recipients</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Penerima Biaya Mengajar</h3>
+                                <h3 class="card-title">Add Teaching Fee Recipients</h3>
                             </div>
 
                             <form action="{{ route('fee-head.store') }}" method="post">
@@ -46,7 +46,7 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputName">Penerima Biaya Mengajar</label>
+                                        <label for="exampleInputName">Teaching Fee Recipients</label>
                                         <input type="text" name="name" class="form-control" id="exampleInputName"
                                             placeholder="Enter Penerima">
                                     </div>
