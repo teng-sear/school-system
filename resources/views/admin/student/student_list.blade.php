@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Siswa</h1>
+                        <h1>Student</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <select name="academic_year_id" id="" class="form-control">
-                                                <option value="" disabled selected>Pilih Tahun Akademik</option>
+                                                <option value="" disabled selected>Select Academic Year</option>
                                                 @foreach ($academic_year as $item)
                                                     <option value="{{ $item->id }}"
                                                         {{ $item->id == request('academic_year_id') ? 'selected' : '' }}>
@@ -59,7 +59,7 @@
 
                                         <div class="form-group col-md-4">
                                             <select name="class_id" class="form-control">
-                                                <option value="" disabled selected>Pilih Kelas</option>
+                                                <option value="" disabled selected>Select Class</option>
                                                 @foreach ($classes as $class)
                                                     <option value="{{ $class->id }}"
                                                         {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -83,12 +83,12 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Nama</th>
-                                                <th>Tahun Akademik</th>
-                                                <th>Kelas</th>
-                                                <th>Nama Ayah</th>
-                                                <th>Nama Ibu</th>
-                                                <th>No Telepon</th>
+                                                <th>Name</th>
+                                                <th>Academic Year</th>
+                                                <th>Class</th>
+                                                <th>Name Father</th>
+                                                <th>Name Mother</th>
+                                                <th>Number Telephone</th>
                                                 <th>Email</th>
                                                 <th>Created Time</th>
                                                 <th>Edit</th>

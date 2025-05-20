@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tetapkan Subjek</h1>
+                        <h1>Set Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Tetapkan Subjek</h3>
+                                <h3 class="card-title">Add Set Subject</h3>
                             </div>
 
                             <form action="{{ route('assign-subject.store') }}" method="post">
@@ -46,7 +46,7 @@
 
                                 <div class="card-body">
                                     <select name="class_id" class="form-control">
-                                        <option disabled selected>Pilih Kelas</option>
+                                        <option disabled selected>Select Class</option>
                                         @foreach ($classes as $class)
                                             <option value="{{ $class->id }}">{{ $class->name }}</option>
                                         @endforeach

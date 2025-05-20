@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Guru</h1>
+                        <h1>Teacher</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -50,10 +50,10 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Nama Guru</th>
-                                                <th>Nama Ayah</th>
-                                                <th>Nama Ibu</th>
-                                                <th>No Telepon</th>
+                                                <th>Name Teacher</th>
+                                                <th>Name Father</th>
+                                                <th>Name Mother</th>
+                                                <th>Number Telephone</th>
                                                 <th>Email</th>
                                                 <th>Created Time</th>
                                                 <th>Edit</th>

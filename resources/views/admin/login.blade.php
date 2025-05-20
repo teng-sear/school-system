@@ -43,10 +43,10 @@
                     </div>
                 @endif
 
-                <p class="h1"><b>School</b> LMS</p>
+                <p class="h1"><b>School</b> SMS</p>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in <b>Admin</b> untuk memulai sesi Anda</p>
+                <p class="login-box-msg">Sign in <b>Admin</b> to start your session</p>
                 <form action="{{ route('admin.authenticate') }}" method="post">
 
                     @csrf
@@ -86,6 +86,10 @@
                                     Remember Me
                                 </label>
                             </div>
+                            <a href="{{ route('/') }}" class="btn btn-secondary text-sm">
+                                <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                Back
+                            </a>
                         </div>
 
                         <div class="col-4">

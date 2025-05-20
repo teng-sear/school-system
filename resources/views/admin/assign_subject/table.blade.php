@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tetapkan Subjek</h1>
+                        <h1>Set Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -46,7 +46,7 @@
                                 <div class="row card-header">
                                     <div class="form-group col-md-4">
                                         <select name="class_id" class="form-control">
-                                            <option value="" disabled selected>Pilih Kelas</option>
+                                            <option value="" disabled selected>Select Class</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -70,9 +70,9 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Kelas</th>
-                                            <th>Nama Subjek</th>
-                                            <th>Tipe Subjek</th>
+                                            <th>Name Class</th>
+                                            <th>Name Subject</th>
+                                            <th>Subject Type</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

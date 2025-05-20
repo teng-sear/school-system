@@ -5,14 +5,13 @@
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 @endsection
-
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tetapkan Guru ke Kelas</h1>
+                        <h1>Assign Teachers to Classes</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -46,7 +45,7 @@
                                 <div class="row card-header">
                                     <div class="form-group col-md-4">
                                         <select name="class_id" class="form-control">
-                                            <option value="" disabled selected>Pilih Kelas</option>
+                                            <option value="" disabled selected>Select Teacher</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -69,10 +68,10 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Kelas</th>
-                                            <th>Nama Subjek</th>
+                                            <th>Name Class</th>
+                                            <th>Name Subject</th>
                                             <th>Theory/Practical</th>
-                                            <th>Nama Guru</th>
+                                            <th>Name Teacher</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

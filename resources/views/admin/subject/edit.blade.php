@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Subjek</h1>
+                        <h1>Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Edit Subjek</h3>
+                                <h3 class="card-title">Edit Subject</h3>
                             </div>
 
                             {{-- metode default HTML hanya mendukung GET dan POST --}}
@@ -49,9 +49,9 @@
                                 <div class="card-body">
                                     {{-- subject name --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Nama Subjek</label>
+                                        <label for="exampleInputName">Name Subject</label>
                                         <input type="text" name="name" class="form-control" id="exampleInputName"
-                                            placeholder="Enter Nama Subjek" value="{{ old('name', $subject->name) }}">
+                                            placeholder="Enter Name Subject" value="{{ old('name', $subject->name) }}">
                                         @error('name')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -59,7 +59,7 @@
 
                                     {{-- type --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Tipe</label>
+                                        <label for="exampleInputName">Type</label>
                                         <select name="type" class="form-control">
                                             <option value="">Select</option>
                                             <option value="theory" {{ $subject->type == 'theory' ? 'selected' : '' }}>Theory

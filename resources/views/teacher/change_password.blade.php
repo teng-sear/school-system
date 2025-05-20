@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Ubah Password</h1>
+                        <h1>Change Password</h1>
                     </div>
 
                 </div>
@@ -47,9 +47,9 @@
 
                                     {{-- old password --}}
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInput">Password Lama</label>
+                                        <label for="exampleInput">Password Old</label>
                                         <input type="password" name="old_password" class="form-control" id="exampleInput"
-                                            placeholder="Enter Password Lama">
+                                            placeholder="Enter Password old">
                                         @error('old_password')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -57,9 +57,9 @@
 
                                     {{-- new password --}}
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInput">Password Baru</label>
+                                        <label for="exampleInput">New Password</label>
                                         <input type="password" name="new_password" class="form-control" id="exampleInput"
-                                            placeholder="Enter Password Baru">
+                                            placeholder="Enter Password new">
                                         @error('new_password')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -67,9 +67,9 @@
 
                                     {{-- confirm password --}}
                                     <div class="form-group col-md-4">
-                                        <label for="exampleInput">Konfirmasi Password</label>
+                                        <label for="exampleInput">Confirm Password</label>
                                         <input type="password" name="confirm_password" class="form-control"
-                                            id="exampleInput" placeholder="Enter Konfirmasi Password">
+                                            id="exampleInput" placeholder="Enter Confirm Password">
                                         @error('confirm_password')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -79,7 +79,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary text-sm">Ubah Password</button>
+                                    <button type="submit" class="btn btn-primary text-sm">Change Password</button>
                                 </div>
                             </form>
                         </div>

@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Jadwal</h1>
+                        <h1>Timetable</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@
                                     {{-- class --}}
                                     <div class="form-group col-md-4">
                                         <select name="class_id" id="class_id" class="form-control">
-                                            <option value="" disabled selected>Pilih Kelas</option>
+                                            <option value="" disabled selected>Select Class</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -60,7 +60,7 @@
                                     {{-- subject --}}
                                     <div class="form-group col-md-4">
                                         <select name="subject_id" id="subject_id" class="form-control">
-                                            <option value="" disabled selected>Pilih Subjek</option>
+                                            <option value="" disabled selected>Select Subject</option>
                                             @foreach ($subjects as $subject)
                                                 <option value="{{ $subject->subject->id }}"
                                                     {{ $subject->subject->id == request('subject_id') ? 'selected' : '' }}>
@@ -83,12 +83,12 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Kelas</th>
-                                            <th>Subjek</th>
-                                            <th>Hari</th>
-                                            <th>Waktu Mulai</th>
-                                            <th>Waktu Berhenti</th>
-                                            <th>Nomor Ruangan</th>
+                                            <th>Class</th>
+                                            <th>Subject</th>
+                                            <th>Day</th>
+                                            <th>Start Time</th>
+                                            <th>Time Stops</th>
+                                            <th>Room Number</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>

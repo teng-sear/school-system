@@ -172,17 +172,17 @@
 
                                         {{-- august --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Agustus</label>
+                                            <label for="exampleInput">Costs August</label>
                                             <input type="text" name="august" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya agustus"
+                                                placeholder="Enter Costs agustus"
                                                 value="{{ old('august', $fee_structure->august) }}">
                                         </div>
 
                                         {{-- september --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya September</label>
+                                            <label for="exampleInput">Costs September</label>
                                             <input type="text" name="september" class="form-control"
-                                                id="exampleInput" placeholder="Enter Biaya september"
+                                                id="exampleInput" placeholder="Enter Costs september"
                                                 value="{{ old('september', $fee_structure->september) }}">
                                         </div>
                                     </div>
@@ -190,25 +190,25 @@
                                     <div class="row">
                                         {{-- october --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Oktober</label>
+                                            <label for="exampleInput">Costs October</label>
                                             <input type="text" name="october" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya oktober"
+                                                placeholder="Enter Costs october"
                                                 value="{{ old('october', $fee_structure->october) }}">
                                         </div>
 
                                         {{-- november --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya November</label>
+                                            <label for="exampleInput">Costs November</label>
                                             <input type="text" name="november" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya november"
+                                                placeholder="Enter Costs november"
                                                 value="{{ old('november', $fee_structure->november) }}">
                                         </div>
 
                                         {{-- december --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Desember</label>
+                                            <label for="exampleInput">Costs December</label>
                                             <input type="text" name="december" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya desember"
+                                                placeholder="Enter Costs december"
                                                 value="{{ old('december', $fee_structure->december) }}">
                                         </div>
                                     </div>

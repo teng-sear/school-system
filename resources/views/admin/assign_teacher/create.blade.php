@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tetapkan Guru ke Kelas</h1>
+                        <h1>Assign Teachers to Classes</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Tetapkan Guru ke Kelas</h3>
+                                <h3 class="card-title">Add Assign Teachers to Classes</h3>
                             </div>
 
                             <form action="{{ route('assign-teacher.store') }}" method="post">
@@ -48,7 +48,7 @@
                                     {{-- class --}}
                                     <div class="form-group">
                                         <select name="class_id" id="class_id" class="form-control">
-                                            <option disabled selected>Pilih Kelas</option>
+                                            <option disabled selected>Select Class</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}">{{ $class->name }}</option>
                                             @endforeach
@@ -61,7 +61,7 @@
                                     {{-- subject --}}
                                     <div class="form-group">
                                         <select name="subject_id" id="subject_id" class="form-control">
-                                            <option disabled selected>Pilih Subjek</option>
+                                            <option disabled selected>Select Subject</option>
                                         </select>
                                         @error('subject_id')
                                             <p class="text-danger">{{ $message }}</p>
@@ -71,7 +71,7 @@
                                     {{-- teacher --}}
                                     <div class="form-group">
                                         <select name="teacher_id" class="form-control">
-                                            <option disabled selected>Pilih Guru</option>
+                                            <option disabled selected>Select Teacher</option>
                                             @foreach ($teachers as $teacher)
                                                 <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
                                             @endforeach

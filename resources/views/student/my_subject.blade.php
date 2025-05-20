@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Mata Pelajaran & Guru Saya</h1>
+                        <h1>My Subjects and Teachers</h1>
                     </div>
 
                 </div>
@@ -39,8 +39,8 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Pelajaran</th>
-                                            <th>Nama Guru</th>
+                                            <th>Lesson Name</th>
+                                            <th>Teacher Name</th>
                                             <th>Theory/Practical</th>
                                         </tr>
                                     </thead>

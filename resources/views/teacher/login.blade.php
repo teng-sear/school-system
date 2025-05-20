@@ -37,10 +37,10 @@
                     </div>
                 @endif
 
-                <a href="../../index2.html" class="h1"><b>School</b>LMS</a>
+                <a href="../../index2.html" class="h1"><b>School</b>SMS</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in <b>Teacher</b> untuk memulai sesi Anda</p>
+                <p class="login-box-msg">Sign in <b>Teacher</b> to start your session</p>
                 <form action="{{ route('teacher.authenticate') }}" method="post">
 
                     @csrf
@@ -80,7 +80,12 @@
                                     Remember Me
                                 </label>
                             </div>
+                            <a href="{{ route('/') }}" class="btn btn-secondary text-sm">
+                                <i class="nav-icon fas fa-solid fa-arrow-left text-xs"></i>
+                                Back
+                            </a>
                         </div>
+                        
 
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>

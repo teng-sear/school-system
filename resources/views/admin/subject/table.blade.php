@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Subjek</h1>
+                        <h1>Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -48,8 +48,8 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama Subjek</th>
-                                            <th>Tipe</th>
+                                            <th>Name Subject</th>
+                                            <th>Type</th>
                                             <th>Created Time</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

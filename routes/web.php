@@ -18,10 +18,17 @@ use App\Models\Classes;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\AuthController; // Ensure this class exists in the specified namespace
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
+
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
+// Ensure the AuthController class and 'register' method exist, or remove this route if unnecessary
+Route::post('register', [AuthController::class, 'register']);
 
 // student
 Route::group(['prefix' => 'student'], function () {

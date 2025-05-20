@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Struktur Penerima Biaya Mengajar</h3>
+                                <h3 class="card-title">Add Teaching Fee Recipient Structure</h3>
                             </div>
 
                             <form action="{{ route('fee-structure.store') }}" method="post">
@@ -49,7 +49,7 @@
                                     <div class="row">
                                         {{-- select class --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Kelas</label>
+                                            <label>Select Class</label>
                                             <select name="class_id" class="form-control">
                                                 <option value="">Select Class</option>
                                                 @foreach ($classes as $class)
@@ -63,7 +63,7 @@
 
                                         {{-- select academic_years --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Tahun Akademik</label>
+                                            <label>Select Academic Years</label>
                                             <select name="academic_year_id" class="form-control">
                                                 <option value="">Select Academic Years</option>
                                                 @foreach ($academic_years as $academic_year)
@@ -78,7 +78,7 @@
 
                                         {{-- select fee_heads --}}
                                         <div class="form-group col-md-4">
-                                            <label>Pilih Penerima Biaya</label>
+                                            <label>Select Fee Recipient</label>
                                             <select name="fee_head_id" class="form-control">
                                                 <option value="" disabled selected>Select Fee Head</option>
                                                 @foreach ($fee_heads as $fee_head)
@@ -96,92 +96,92 @@
                                     <div class="row">
                                         {{-- january --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Januari</label>
+                                            <label for="exampleInput">Costs January</label>
                                             <input type="text" name="january" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya january">
+                                                placeholder="Enter Costs january">
                                         </div>
 
                                         {{-- february --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Februari</label>
+                                            <label for="exampleInput">Costs February</label>
                                             <input type="text" name="february" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya february">
+                                                placeholder="Enter Costs february">
                                         </div>
 
                                         {{-- macrh --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Maret</label>
+                                            <label for="exampleInput">Costs March</label>
                                             <input type="text" name="march" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya maret">
+                                                placeholder="Enter Costs march">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         {{-- april --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya April</label>
+                                            <label for="exampleInput">Costs April</label>
                                             <input type="text" name="april" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya april">
+                                                placeholder="Enter Costs april">
                                         </div>
 
                                         {{-- may --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Mei</label>
+                                            <label for="exampleInput">Costs May</label>
                                             <input type="text" name="may" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya Mei">
+                                                placeholder="Enter Costs May">
                                         </div>
 
                                         {{-- june --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Juni</label>
+                                            <label for="exampleInput">Costs June</label>
                                             <input type="text" name="june" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya Juni">
+                                                placeholder="Enter Costs June">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         {{-- july --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Juli</label>
+                                            <label for="exampleInput">Costs July</label>
                                             <input type="text" name="july" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya Juli">
+                                                placeholder="Enter Costs July">
                                         </div>
 
                                         {{-- august --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Agustus</label>
+                                            <label for="exampleInput">Costs August</label>
                                             <input type="text" name="august" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya agustus">
+                                                placeholder="Enter Costs august">
                                         </div>
 
                                         {{-- september --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya September</label>
+                                            <label for="exampleInput">Costs September</label>
                                             <input type="text" name="september" class="form-control"
-                                                id="exampleInput" placeholder="Enter Biaya september">
+                                                id="exampleInput" placeholder="Enter Costs september">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         {{-- october --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Oktober</label>
+                                            <label for="exampleInput">Costs October</label>
                                             <input type="text" name="october" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya oktober">
+                                                placeholder="Enter Costs october">
                                         </div>
 
                                         {{-- november --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya November</label>
+                                            <label for="exampleInput">Costs November</label>
                                             <input type="text" name="november" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya november">
+                                                placeholder="Enter Costs november">
                                         </div>
 
                                         {{-- december --}}
                                         <div class="form-group col-md-4">
-                                            <label for="exampleInput">Biaya Desember</label>
+                                            <label for="exampleInput">Costs December</label>
                                             <input type="text" name="december" class="form-control" id="exampleInput"
-                                                placeholder="Enter Biaya desember">
+                                                placeholder="Enter Costs december">
                                         </div>
                                     </div>
                                 </div>

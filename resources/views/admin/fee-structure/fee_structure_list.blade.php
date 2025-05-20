@@ -48,7 +48,7 @@
                                     <div class="row">
                                         <div class="form-group col-md-4">
                                             <select name="academic_year_id" class="form-control">
-                                                <option value="">Pilih Tahun Akademik</option>
+                                                <option value="">Select Academic Year</option>
                                                 @foreach ($academic_years as $academic_year)
                                                     <option value="{{ $academic_year->id }}"
                                                         {{ $academic_year->id == request('academic_year_id') ? 'selected' : '' }}>
@@ -61,7 +61,7 @@
                                         {{-- select class --}}
                                         <div class="form-group col-md-4">
                                             <select name="class_id" class="form-control">
-                                                <option value="">Pilih Kelas</option>
+                                                <option value="">Select Class</option>
                                                 @foreach ($classes as $class)
                                                     <option value="{{ $class->id }}"
                                                         {{ $class->id == request('class_id') ? 'selected' : '' }}>
@@ -87,21 +87,21 @@
                                         <thead class="bg-gray-100">
                                             <tr>
                                                 <th class="border px-4 py-2 text-left">No.</th>
-                                                <th class="border px-4 py-2 text-left">Tahun Akademik</th>
-                                                <th class="border px-4 py-2 text-left">Kelas</th>
-                                                <th class="border px-4 py-2 text-left">Penerima</th>
-                                                <th class="border px-4 py-2 text-left">Januari</th>
-                                                <th class="border px-4 py-2 text-left">Februari</th>
-                                                <th class="border px-4 py-2 text-left">Maret</th>
+                                                <th class="border px-4 py-2 text-left">Academic Year</th>
+                                                <th class="border px-4 py-2 text-left">Class</th>
+                                                <th class="border px-4 py-2 text-left">Recipient</th>
+                                                <th class="border px-4 py-2 text-left">January</th>
+                                                <th class="border px-4 py-2 text-left">February</th>
+                                                <th class="border px-4 py-2 text-left">March</th>
                                                 <th class="border px-4 py-2 text-left">April</th>
-                                                <th class="border px-4 py-2 text-left">Mei</th>
-                                                <th class="border px-4 py-2 text-left">Juni</th>
-                                                <th class="border px-4 py-2 text-left">Juli</th>
-                                                <th class="border px-4 py-2 text-left">Agustus</th>
+                                                <th class="border px-4 py-2 text-left">May</th>
+                                                <th class="border px-4 py-2 text-left">June</th>
+                                                <th class="border px-4 py-2 text-left">July</th>
+                                                <th class="border px-4 py-2 text-left">August</th>
                                                 <th class="border px-4 py-2 text-left">September</th>
-                                                <th class="border px-4 py-2 text-left">Oktober</th>
+                                                <th class="border px-4 py-2 text-left">October</th>
                                                 <th class="border px-4 py-2 text-left">November</th>
-                                                <th class="border px-4 py-2 text-left">Desember</th>
+                                                <th class="border px-4 py-2 text-left">December</th>
                                                 <th class="border px-4 py-2 text-left">Action</th>
                                             </tr>
                                         </thead>

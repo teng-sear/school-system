@@ -1,4 +1,4 @@
-@extends('admin.layout')
+    @extends('admin.layout')
 
 @section('content')
     {{-- content form --}}
@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Tetapkan Subjek</h1>
+                        <h1>Set Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Edit Tetapkan Subjek</h3>
+                                <h3 class="card-title">Edit Set Subject</h3>
                             </div>
 
                             {{-- metode default HTML hanya mendukung GET dan POST --}}
@@ -49,7 +49,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <select name="class_id" class="form-control">
-                                            <option disabled selected>Pilih Kelas</option>
+                                            <option disabled selected>Select Class</option>
                                             @foreach ($classes as $class)
                                                 <option value="{{ $class->id }}"
                                                     {{ $assign_subject->class_id == $class->id ? 'selected' : '' }}>
@@ -64,7 +64,7 @@
 
                                     <div class="form-grup">
                                         <select name="subject_id" class="form-control">
-                                            <option disabled selected>Pilih Subjek</option>
+                                            <option disabled selected>Select Subject</option>
                                             @foreach ($subjects as $subject)
                                                 <option value="{{ $subject->id }}"
                                                     {{ $assign_subject->subject_id == $subject->id ? 'selected' : '' }}>

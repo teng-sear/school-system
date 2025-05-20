@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Subjek</h1>
+                        <h1>Subject</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -37,7 +37,7 @@
                             @endif
 
                             <div class="card-header">
-                                <h3 class="card-title">Add Subjek</h3>
+                                <h3 class="card-title">Add Subject</h3>
                             </div>
 
                             <form action="{{ route('subject.store') }}" method="post">
@@ -48,9 +48,9 @@
 
                                     {{-- subject name --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Nama Subjek</label>
+                                        <label for="exampleInputName">Name Subject</label>
                                         <input type="text" name="name" class="form-control" id="exampleInputName"
-                                            placeholder="Enter Nama Subjek">
+                                            placeholder="Enter Name Subject">
                                         @error('name')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -58,7 +58,7 @@
 
                                     {{-- type --}}
                                     <div class="form-group">
-                                        <label for="exampleInputName">Tipe</label>
+                                        <label for="exampleInputName">Type</label>
                                         <select name="type" class="form-control">
                                             <option value="theory">Theory</option>
                                             <option value="practical">Practical</option>
